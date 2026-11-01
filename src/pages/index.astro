@@ -1,0 +1,27 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Counter from '../components/react/Counter';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>🎮 JUSIAI GAMES</h1>
+			<p>1인 게임 개발사 JUSIAI GAMES의 블로그에 오신 것을 환영합니다.</p>
+			<p>개발 일지, 게임 소식, 기술 이야기를 이곳에 기록합니다.</p>
+			<p><a href="/blog">블로그 글 보러 가기 →</a></p>
+
+			<h2>React 컴포넌트 예시</h2>
+			<Counter client:visible />
+		</main>
+		<Footer />
+	</body>
+</html>
