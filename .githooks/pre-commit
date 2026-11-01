@@ -1,0 +1,9 @@
+#!/bin/sh
+# 커밋 작성자(author)와 커미터(committer)가 jusiai-games 계정인지 검사합니다.
+. "$(dirname "$0")/identity.sh"
+
+author=$(ident_of "$(git var GIT_AUTHOR_IDENT)")
+committer=$(ident_of "$(git var GIT_COMMITTER_IDENT)")
+
+[ "$author" = "$ALLOWED_IDENT" ] || fail_identity "작성자(author)" "$author"
+[ "$committer" = "$ALLOWED_IDENT" ] || fail_identity "커미터(committer)" "$committer"

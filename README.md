@@ -60,6 +60,22 @@ import Counter from '../components/react/Counter';
 <Counter client:visible />
 ```
 
+## 커밋 계정 규칙
+
+이 저장소는 **`jusiai-games <jusiai.games@gmail.com>`** 계정으로만 커밋할 수 있습니다.
+
+- `.githooks/pre-commit`: 작성자/커미터가 다르면 커밋을 거부합니다.
+- `.githooks/pre-push`: push 대상 커밋 중 다른 계정이 섞여 있으면 push를 거부합니다.
+- `npm install` 시 `prepare` 스크립트가 `core.hooksPath`를 자동 설정합니다.
+
+새로 clone한 경우 아래를 먼저 실행하세요.
+
+```sh
+git config user.name "jusiai-games"
+git config user.email "jusiai.games@gmail.com"
+npm install   # hook 활성화
+```
+
 ## 배포 설정 (최초 1회)
 
 GitHub 저장소 **Settings → Pages → Build and deployment → Source** 를 **GitHub Actions** 로 설정하세요.
