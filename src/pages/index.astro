@@ -36,15 +36,19 @@ const latestPosts = (await getCollection('devlog'))
 			<h2 id="latest-title">최근 데브로그</h2>
 			<a href="/devlog">전체 보기 →</a>
 		</div>
-		<ul class="post-grid">
-			{
-				latestPosts.map((post) => (
-					<li>
-						<PostCard post={post} />
-					</li>
-				))
-			}
-		</ul>
+		{
+			latestPosts.length > 0 ? (
+				<ul class="post-grid">
+					{latestPosts.map((post) => (
+						<li>
+							<PostCard post={post} />
+						</li>
+					))}
+				</ul>
+			) : (
+				<p class="empty-state">첫 데브로그를 준비하고 있습니다.</p>
+			)
+		}
 	</section>
 </BaseLayout>
 
@@ -103,8 +107,8 @@ const latestPosts = (await getCollection('devlog'))
 		color: var(--on-accent);
 	}
 	.hero__btn:hover {
-		background: #bbd155;
-		border-color: #bbd155;
+		background: var(--lime-leaf-hover);
+		border-color: var(--lime-leaf-hover);
 	}
 	.hero__btn--ghost {
 		background: transparent;

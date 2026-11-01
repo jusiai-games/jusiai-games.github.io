@@ -1,5 +1,7 @@
 # JUSIAI GAMES Blog
 
+> AI 에이전트 작업 규칙은 [AGENTS.md](./AGENTS.md)에 있습니다.
+
 1인 게임 개발사 **JUSIAI GAMES**의 공식 블로그입니다. → https://jusiai-games.github.io
 
 [Astro](https://astro.build) + React + TypeScript 기반 정적 사이트이며, `main` 브랜치에 push 하면 GitHub Actions로 GitHub Pages에 자동 배포됩니다.
@@ -17,18 +19,18 @@
 | `npm run check`   | 타입 검사 (`astro check`)                    |
 | `npm run build`   | 타입 검사 후 `./dist/`에 프로덕션 빌드       |
 | `npm run preview` | 빌드 결과 로컬 미리보기                      |
-| `npm run favicons` | 브랜드 아이콘으로 파비콘 세트 다시 생성     |
+| `npm run favicons`| 브랜드 아이콘으로 파비콘 세트 다시 생성      |
 
 ## 프로젝트 구조
 
 ```text
 ├── .github/workflows/deploy.yml   # GitHub Pages 배포
-├── public/                        # 그대로 복사되는 정적 파일 (favicon 등)
+├── .githooks/                     # 커밋 계정 검사 hook
+├── public/                        # 그대로 복사되는 정적 파일 (파비콘 등)
+├── scripts/generate-favicons.mjs  # 파비콘 생성
 └── src/
-    ├── assets/                    # 이미지·폰트 (빌드 시 최적화)
-    ├── components/                # Astro 컴포넌트 (Logo, Header, PostCard, Callout …)
-    │   └── react/                 # React(.tsx) 컴포넌트
     ├── assets/brand/              # 로고(구피 마크, 앱 아이콘)
+    ├── components/                # Astro 컴포넌트 (Logo, Header, PostCard, Callout …)
     ├── content/devlog/            # 데브로그 글 (.md / .mdx)
     ├── layouts/                   # 페이지 레이아웃
     ├── pages/                     # 라우트 (파일 = URL)
@@ -46,7 +48,7 @@
 title: '글 제목'
 description: '한 줄 요약'
 pubDate: '2026-11-02'
-heroImage: '../../assets/blog-placeholder-1.jpg' # 선택
+heroImage: './images/cover.png' # 선택, 글 파일 기준 상대 경로
 tags: ['devlog', 'unity'] # 선택
 ---
 
@@ -62,17 +64,6 @@ tags: ['devlog', 'unity'] # 선택
 - 글꼴: Pretendard(`pretendard` 패키지, 필요한 글자만 내려받는 분할 버전).
 - MDX 글에서 콜아웃: `import Callout from '../../components/Callout.astro'` 후 `<Callout type="note">…</Callout>`.
 - 파비콘: `src/assets/brand/guppy-app-icon.svg`를 바꾼 뒤 `npm run favicons`.
-
-## React 컴포넌트 사용
-
-`src/components/react/`에 `.tsx`를 만들고 `.astro`(또는 `.mdx`)에서 `client:*` 디렉티브와 함께 사용합니다.
-
-```astro
----
-import Counter from '../components/react/Counter';
----
-<Counter client:visible />
-```
 
 ## 커밋 계정 규칙
 

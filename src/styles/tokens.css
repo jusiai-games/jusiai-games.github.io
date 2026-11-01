@@ -11,6 +11,7 @@
 
 	/* 팔레트 */
 	--lime-leaf: #a9c23f;
+	--lime-leaf-hover: #bbd155;
 	--deep-moss: #3b531a;
 	--guppy-gold: #f4be5e;
 	--guppy-coral: #ec8f55;
@@ -68,7 +69,7 @@
 		--water-mist: #a3a69c;
 		--line: #3a4230;
 		--action: var(--lime-leaf);
-		--action-hover: #bbd155;
+		--action-hover: var(--lime-leaf-hover);
 		--on-action: var(--on-accent);
 		--on-signal: var(--on-accent);
 	}
@@ -85,7 +86,7 @@
 	--water-mist: #a3a69c;
 	--line: #3a4230;
 	--action: var(--lime-leaf);
-	--action-hover: #bbd155;
+	--action-hover: var(--lime-leaf-hover);
 	--on-action: var(--on-accent);
 	--on-signal: var(--on-accent);
 }
