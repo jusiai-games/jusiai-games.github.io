@@ -1,6 +1,24 @@
 # AGENTS.md
 
-이 저장소에서 일하는 AI 에이전트(Claude Code, Codex 등)가 따라야 할 규칙입니다. 프로젝트 소개와 명령어는 [README.md](./README.md)를 보세요.
+이 저장소에서 일하는 AI 에이전트(Claude Code, Codex 등)가 따라야 할 규칙입니다.
+
+## 프로젝트
+
+JUSIAI GAMES 데브로그(https://jusiai-games.github.io)의 소스입니다. Astro + React + TypeScript 정적 사이트이고, `main`에 push하면 GitHub Actions(`.github/workflows/deploy.yml`)로 GitHub Pages에 배포됩니다.
+
+| 명령어 | 용도 |
+| --- | --- |
+| `npm install` | 의존성 설치, 커밋 계정 검사 hook 활성화 |
+| `npm run dev` | 개발 서버 (http://localhost:4321) |
+| `npm run build` | 타입 검사 후 `dist/`에 빌드 |
+| `npm run favicons` | `src/assets/brand/guppy-app-icon.svg`로 파비콘 세트 생성 |
+
+## README
+
+README는 공개 저장소를 찾아온 사람을 위한 **회사 소개**입니다. 설치, 빌드, 프로젝트 구조 같은 개발 문서는 README에 쓰지 않고 이 파일에 씁니다.
+
+- 원본은 한국어 `README.md`, 번역은 영어 `README.en.md`, 일본어 `README.ja.md`입니다.
+- 한국어 원본을 고치면 영어와 일본어 번역도 같은 커밋에서 함께 고칩니다.
 
 ## 역할 분담
 
