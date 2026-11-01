@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import BaseLayout from './BaseLayout.astro';
+
+type Props = CollectionEntry<'devlog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={heroImage}>
+	<article class="post">
+		<header class="post__head">
+			<a class="post__back" href="/devlog">← 데브로그</a>
+			<h1>{title}</h1>
+			<p class="post__meta">
+				<FormattedDate date={pubDate} />
+				{
+					updatedDate && (
+						<span>
+							· 수정 <FormattedDate date={updatedDate} />
+						</span>
+					)
+				}
+			</p>
+			{
+				tags.length > 0 && (
+					<div class="jg-tags">
+						{tags.map((tag) => (
+							<span class="jg-tag">{tag}</span>
+						))}
+					</div>
+				)
+			}
+		</header>
+		{heroImage && <Image class="post__hero" src={heroImage} width={1040} height={520} alt="" />}
+		<div class="jg-prose post__body">
+			<slot />
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	.post {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-6);
+	}
+	.post__head {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+		max-width: var(--content-width);
+		width: 100%;
+		margin: 0 auto;
+	}
+	.post__back {
+		font-size: 14px;
+		line-height: 22px;
+		font-weight: 600;
+		color: var(--water-mist);
+		text-decoration: none;
+	}
+	.post__back:hover {
+		color: var(--ink);
+	}
+	h1 {
+		margin: 0;
+		font-size: 28px;
+		line-height: 36px;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+	}
+	@media (min-width: 721px) {
+		h1 {
+			font-size: 36px;
+			line-height: 44px;
+		}
+	}
+	.post__meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-1);
+		margin: 0;
+		font-size: 13px;
+		line-height: 18px;
+		font-weight: 500;
+		color: var(--water-mist);
+	}
+	.post__hero {
+		display: block;
+		width: 100%;
+		border-radius: var(--radius-md);
+	}
+	.post__body {
+		width: 100%;
+		max-width: var(--content-width);
+		margin: 0 auto;
+	}
+</style>

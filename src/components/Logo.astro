@@ -1,0 +1,17 @@
+---
+import guppyMark from '../assets/brand/guppy-mark.svg';
+import { SITE_TITLE } from '../consts';
+
+interface Props {
+	size?: 'md' | 'lg';
+	href?: string;
+}
+
+const { size = 'md', href } = Astro.props;
+const Tag = href ? 'a' : 'span';
+---
+
+<Tag class:list={['jg-logo', { 'jg-logo--lg': size === 'lg' }]} href={href} aria-label={href ? `${SITE_TITLE} 홈` : undefined}>
+	<img class="jg-logo__mark" src={guppyMark.src} width={guppyMark.width} height={guppyMark.height} alt="" />
+	<span class="jg-logo__word">{SITE_TITLE}</span>
+</Tag>

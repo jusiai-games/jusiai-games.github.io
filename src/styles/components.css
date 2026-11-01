@@ -1,0 +1,208 @@
+/* JUSIAI GAMES 컴포넌트 스타일 — 디자인 시스템 components/bundle.css와 동일하게 유지합니다. */
+
+.jg-root {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Logo ---------- */
+.jg-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--ink);
+  text-decoration: none;
+}
+.jg-logo__mark { display: block; height: 32px; width: auto; }
+.jg-logo__icon { display: block; width: 40px; height: 40px; border-radius: var(--radius-sm); }
+.jg-logo__word {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.jg-logo--lg .jg-logo__mark { height: 56px; }
+.jg-logo--lg .jg-logo__word { font-size: 32px; }
+
+/* ---------- Button ---------- */
+.jg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: 2px solid var(--action);
+  border-radius: var(--radius-md);
+  background: var(--action);
+  color: var(--on-action);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+.jg-btn:hover { background: var(--action-hover); border-color: var(--action-hover); }
+.jg-btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.jg-btn:disabled, .jg-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+.jg-btn--secondary { background: transparent; color: var(--action); }
+.jg-btn--secondary:hover { background: var(--river-stone); border-color: var(--action); }
+.jg-btn--sm { padding: var(--space-1) var(--space-3); font-size: 13px; line-height: 18px; }
+
+/* ---------- Badge ---------- */
+.jg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: var(--guppy-gold);
+  color: var(--on-accent);
+}
+.jg-badge--new, .jg-badge--live { background: var(--neon-red); color: var(--on-signal); }
+.jg-badge--live::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+}
+.jg-badge--lime { background: var(--lime-leaf); color: var(--on-accent); }
+.jg-badge--coral { background: var(--guppy-coral); color: var(--on-accent); }
+
+/* ---------- Tag ---------- */
+.jg-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--river-stone);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.jg-tag::before { content: "#"; color: var(--water-mist); margin-right: 2px; }
+a.jg-tag:hover { background: var(--line); }
+.jg-tag:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.jg-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+/* ---------- PostCard ---------- */
+.jg-post-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--river-stone);
+  color: var(--ink);
+  text-decoration: none;
+  min-width: 0;
+}
+.jg-post-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: calc(var(--radius-md) - 4px);
+  background: var(--deep-moss);
+}
+.jg-post-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--water-mist);
+}
+.jg-post-card__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  text-wrap: balance;
+}
+.jg-post-card__desc { margin: 0; font-size: 14px; line-height: 22px; }
+a.jg-post-card:hover .jg-post-card__title { text-decoration: underline; text-underline-offset: 4px; }
+a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+/* ---------- Callout ---------- */
+.jg-callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-3);
+  row-gap: var(--space-1);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--river-stone);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+.jg-callout__dot {
+  grid-row: 1;
+  align-self: center;
+  width: 10px; height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--lime-leaf);
+}
+.jg-callout__label { grid-row: 1; font-size: 13px; line-height: 18px; font-weight: 700; }
+.jg-callout__body { grid-column: 2; margin: 0; font-size: 15px; line-height: 24px; }
+.jg-callout--note .jg-callout__dot { background: var(--neon-blue); }
+.jg-callout--warn .jg-callout__dot { background: var(--neon-red); }
+
+/* ---------- Prose (blog article body) ---------- */
+.jg-prose {
+  max-width: 68ch;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--ink);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.jg-prose > * + * { margin-top: var(--space-4); }
+.jg-prose h1 { font-size: 28px; line-height: 36px; font-weight: 700; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+.jg-prose h2 { font-size: 20px; line-height: 28px; font-weight: 700; margin-top: var(--space-10); text-wrap: balance; }
+.jg-prose h3 { font-size: 17px; line-height: 26px; font-weight: 700; margin-top: var(--space-6); }
+.jg-prose p, .jg-prose ul, .jg-prose ol { margin-bottom: 0; }
+.jg-prose a { color: var(--neon-blue-deep); text-decoration: underline; text-underline-offset: 3px; }
+.jg-prose a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-radius: 2px; }
+.jg-prose strong { font-weight: 700; }
+.jg-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--river-stone);
+}
+.jg-prose pre {
+  margin-left: 0; margin-right: 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--river-stone);
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 22px;
+}
+.jg-prose pre code { padding: 0; background: none; font-size: inherit; }
+.jg-prose blockquote {
+  margin-left: 0; margin-right: 0;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--river-stone);
+  color: var(--ink);
+}
+.jg-prose img { max-width: 100%; border-radius: var(--radius-md); }
+.jg-prose hr { border: 0; height: 1px; background: var(--line); margin: var(--space-10) 0; }
+.jg-prose .jg-prose__meta { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--water-mist); }

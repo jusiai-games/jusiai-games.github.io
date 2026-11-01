@@ -1,27 +1,190 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import Counter from '../components/react/Counter';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import guppyMark from '../assets/brand/guppy-mark.svg';
+import PostCard from '../components/PostCard.astro';
+import { SITE_DESCRIPTION, SITE_TAGLINE, SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const latestPosts = (await getCollection('devlog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 4);
 ---
 
-<!doctype html>
-<html lang="ko">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🎮 JUSIAI GAMES</h1>
-			<p>1인 게임 개발사 JUSIAI GAMES의 블로그에 오신 것을 환영합니다.</p>
-			<p>개발 일지, 게임 소식, 기술 이야기를 이곳에 기록합니다.</p>
-			<p><a href="/blog">블로그 글 보러 가기 →</a></p>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<section class="hero" aria-labelledby="hero-title">
+		<div class="hero__text">
+			<p class="hero__eyebrow">{SITE_TITLE}</p>
+			<h1 id="hero-title">{SITE_TAGLINE}</h1>
+			<p class="hero__lead">
+				게임을 만드는 과정을 데브로그에 기록합니다. 기획, 아트, 코드, 그리고 혼자 회사를 꾸려가는 이야기까지.
+			</p>
+			<div class="hero__actions">
+				<a class="jg-btn hero__btn" href="/devlog">데브로그 읽기</a>
+				<a class="jg-btn jg-btn--secondary hero__btn--ghost" href="/about">JUSIAI GAMES 소개</a>
+			</div>
+		</div>
+		<img class="hero__mark" src={guppyMark.src} width={guppyMark.width} height={guppyMark.height} alt="" />
+		<svg class="hero__weeds" viewBox="0 0 400 120" aria-hidden="true" preserveAspectRatio="none">
+			<path d="M262 120 C254 96 276 84 266 60 C260 46 272 34 268 22"></path>
+			<path d="M300 120 C306 104 290 94 300 74"></path>
+			<path d="M372 120 C380 96 358 84 368 52"></path>
+		</svg>
+	</section>
 
-			<h2>React 컴포넌트 예시</h2>
-			<Counter client:visible />
-		</main>
-		<Footer />
-	</body>
-</html>
+	<section class="latest" aria-labelledby="latest-title">
+		<div class="latest__head">
+			<h2 id="latest-title">최근 데브로그</h2>
+			<a href="/devlog">전체 보기 →</a>
+		</div>
+		<ul class="post-grid">
+			{
+				latestPosts.map((post) => (
+					<li>
+						<PostCard post={post} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+		align-items: center;
+		gap: var(--space-6);
+		padding: var(--space-10) var(--space-10) var(--space-16);
+		border-radius: var(--radius-md);
+		background: var(--deep-moss);
+		color: var(--on-moss);
+		overflow: hidden;
+	}
+	.hero__text {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-4);
+		min-width: 0;
+	}
+	.hero__eyebrow {
+		margin: 0;
+		font-size: 13px;
+		line-height: 18px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		color: var(--lime-leaf);
+	}
+	h1 {
+		margin: 0;
+		font-size: 44px;
+		line-height: 50px;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--guppy-gold);
+	}
+	.hero__lead {
+		margin: 0;
+		max-width: 36em;
+		color: var(--on-moss);
+	}
+	.hero__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-3);
+		margin-top: var(--space-2);
+	}
+	/* deep-moss 면 위에서는 테마와 관계없이 라임 버튼 */
+	.hero__btn {
+		background: var(--lime-leaf);
+		border-color: var(--lime-leaf);
+		color: var(--on-accent);
+	}
+	.hero__btn:hover {
+		background: #bbd155;
+		border-color: #bbd155;
+	}
+	.hero__btn--ghost {
+		background: transparent;
+		border-color: var(--on-moss);
+		color: var(--on-moss);
+	}
+	.hero__btn--ghost:hover {
+		background: rgb(244 245 236 / 0.12);
+		border-color: var(--on-moss);
+	}
+	.hero .jg-btn:focus-visible {
+		outline-color: var(--guppy-gold);
+	}
+	.hero__mark {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		height: auto;
+		max-width: 360px;
+		justify-self: center;
+		animation: swim 6s ease-in-out infinite;
+	}
+	.hero__weeds {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 80px;
+	}
+	.hero__weeds path {
+		fill: none;
+		stroke: var(--lime-leaf);
+		stroke-width: 7;
+		stroke-linecap: round;
+	}
+	@keyframes swim {
+		0%,
+		100% {
+			transform: translate(0, 0);
+		}
+		50% {
+			transform: translate(-8px, -6px);
+		}
+	}
+
+	.latest {
+		margin-top: var(--space-16);
+	}
+	.latest__head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: var(--space-4);
+		margin-bottom: var(--space-6);
+	}
+	.latest__head h2 {
+		margin: 0;
+		font-size: 20px;
+		line-height: 28px;
+		font-weight: 700;
+	}
+	.latest__head a {
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	@media (max-width: 720px) {
+		.hero {
+			grid-template-columns: minmax(0, 1fr);
+			padding: var(--space-6) var(--space-6) var(--space-16);
+		}
+		.hero__mark {
+			grid-row: 1;
+			max-width: 200px;
+			justify-self: start;
+		}
+		h1 {
+			font-size: 32px;
+			line-height: 38px;
+		}
+	}
+</style>

@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+	post: CollectionEntry<'devlog'>;
+	/** 이 날짜 이후 글에 NEW 배지 표시 (기본: 14일) */
+	newWithinDays?: number;
+}
+
+const { post, newWithinDays = 14 } = Astro.props;
+const { title, description, pubDate, heroImage, tags } = post.data;
+const isNew = Date.now() - pubDate.valueOf() < newWithinDays * 24 * 60 * 60 * 1000;
+---
+
+<a class="jg-post-card" href={`/devlog/${post.id}/`}>
+	{heroImage && <Image class="jg-post-card__image" src={heroImage} width={720} height={360} alt="" />}
+	<div class="jg-post-card__meta">
+		<FormattedDate date={pubDate} />
+		{isNew && <span class="jg-badge jg-badge--new">NEW</span>}
+	</div>
+	<h3 class="jg-post-card__title">{title}</h3>
+	<p class="jg-post-card__desc">{description}</p>
+</a>
+{
+	tags.length > 0 && (
+		<div class="jg-tags">
+			{tags.map((tag) => (
+				<span class="jg-tag">{tag}</span>
+			))}
+		</div>
+	)
+}
