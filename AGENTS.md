@@ -68,5 +68,5 @@ README는 공개 저장소를 찾아온 사람을 위한 **회사 소개**입니
 - `neon-red`는 LIVE, NEW, 경고 같은 작은 표시에만 씁니다. 신호라서 파스텔보다 진하게 둡니다.
 - 모서리는 `radius-md`(14px), 그림자는 쓰지 않습니다. 구분은 `surface`와 `river-stone`의 면 색 차이로 합니다.
 - 글자 대비는 라이트·다크 모두 4.5:1 이상이어야 합니다.
-- 로고는 `src/assets/brand/`의 구피 파일만 쓰고 색이나 비율을 바꾸지 않습니다(몸통 `butter-gold`, 꼬리·지느러미 `peach-coral`, 볼 `blush-pink`, 눈 `ink`, 바탕 `mint-water`). 파비콘은 `npm run favicons`로만 다시 만듭니다.
+- 로고는 `src/assets/brand/`의 구피 파일만 쓰고 색이나 비율을 바꾸지 않습니다(몸통 `butter-gold`, 꼬리·지느러미 `peach-coral`, 꼬리 끝 크림색, 볼 `blush-pink`, 눈 `ink`, 바탕 `mint-water`). 원본은 디자인 시스템의 파스텔 앱 아이콘과 마크입니다. 파비콘은 `npm run favicons`로만 다시 만듭니다.
 - 토큰이나 컴포넌트를 바꾸면 디자인 시스템 문서(https://claude.ai/artifact/TFsB4FPK46UPLuyBiGv5TY)와 맞지 않게 됩니다. 사용자에게 알려 함께 갱신합니다.
