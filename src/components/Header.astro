@@ -4,7 +4,7 @@ import HeaderLink from './HeaderLink.astro';
 import Logo from './Logo.astro';
 ---
 
-<header class="site-header">
+<header class="site-header jg-night">
 	<div class="site-header__inner">
 		<Logo href="/" />
 		<nav aria-label="주요 메뉴">
@@ -19,13 +19,10 @@ import Logo from './Logo.astro';
 			</ul>
 		</nav>
 	</div>
+	<span class="jg-stairs jg-stairs--up" aria-hidden="true"></span>
 </header>
 
 <style>
-	.site-header {
-		border-bottom: 1px solid var(--line);
-		background: var(--surface);
-	}
 	.site-header__inner {
 		display: flex;
 		flex-wrap: wrap;
@@ -34,7 +31,7 @@ import Logo from './Logo.astro';
 		gap: var(--space-3) var(--space-6);
 		max-width: var(--wide-width);
 		margin: 0 auto;
-		padding-block: var(--space-3);
+		padding-block: var(--space-4) var(--space-2);
 		padding-left: max(var(--space-4), env(safe-area-inset-left, 0px));
 		padding-right: max(var(--space-4), env(safe-area-inset-right, 0px));
 	}

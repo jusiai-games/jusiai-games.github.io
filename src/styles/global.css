@@ -17,8 +17,8 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background: var(--surface);
-	color: var(--ink);
+	background: var(--bg);
+	color: var(--text);
 	font-family: var(--font-sans);
 	font-size: 16px;
 	line-height: 26px;
@@ -44,7 +44,7 @@ h3 {
 }
 
 a {
-	color: var(--sky-deep);
+	color: var(--link);
 	text-underline-offset: 3px;
 }
 
@@ -61,7 +61,7 @@ img {
 }
 
 ::selection {
-	background: var(--butter-gold);
+	background: var(--lamp-gold);
 	color: var(--on-accent);
 }
 
@@ -82,7 +82,7 @@ img {
 }
 .page-head p {
 	margin: 0;
-	color: var(--water-mist);
+	color: var(--muted);
 }
 
 /* 글이 없을 때 */
@@ -90,8 +90,8 @@ img {
 	margin: 0;
 	padding: var(--space-10) var(--space-6);
 	border-radius: var(--radius-md);
-	background: var(--river-stone);
-	color: var(--water-mist);
+	background: var(--panel);
+	color: var(--muted);
 	text-align: center;
 }
 

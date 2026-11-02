@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import guppyMark from '../assets/brand/guppy-mark.svg';
+import icon from '../assets/brand/jusiai-icon-8bit-512.png';
 import PostCard from '../components/PostCard.astro';
 import { SITE_DESCRIPTION, SITE_TAGLINE, SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -8,27 +8,70 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const latestPosts = (await getCollection('devlog'))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 4);
+
+// 배너의 픽셀 별. [x, y, 색, 십자 여부] — 좌표는 160×90칸 기준
+const STARS: [number, number, 'cream' | 'gold' | 'coral' | 'spark', boolean][] = [
+	[18, 6, 'spark', false],
+	[7, 17, 'gold', false],
+	[45, 13, 'coral', false],
+	[61, 17, 'coral', true],
+	[79, 9, 'cream', true],
+	[73, 18, 'spark', false],
+	[99, 7, 'cream', true],
+	[108, 6, 'coral', false],
+	[102, 21, 'coral', false],
+	[121, 14, 'cream', false],
+	[131, 5, 'coral', false],
+	[142, 15, 'coral', false],
+	[156, 13, 'coral', true],
+	[146, 26, 'spark', false],
+	[10, 32, 'cream', false],
+	[4, 53, 'spark', false],
+	[141, 47, 'spark', true],
+	[152, 48, 'spark', false],
+	[26, 66, 'gold', false],
+	[42, 72, 'coral', true],
+	[65, 68, 'cream', false],
+	[91, 70, 'gold', true],
+	[106, 70, 'cream', true],
+	[116, 73, 'spark', true],
+	[126, 66, 'spark', false],
+	[130, 80, 'cream', true],
+	[27, 79, 'cream', false],
+	[88, 81, 'gold', false],
+	[144, 83, 'coral', false],
+];
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<section class="hero" aria-labelledby="hero-title">
-		<div class="hero__text">
-			<p class="hero__eyebrow">{SITE_TITLE}</p>
-			<h1 id="hero-title">{SITE_TAGLINE}</h1>
-			<p class="hero__lead">
-				게임을 만드는 과정을 데브로그에 기록합니다. 기획, 아트, 코드, 그리고 혼자 회사를 꾸려가는 이야기까지.
-			</p>
-			<div class="hero__actions">
-				<a class="jg-btn" href="/devlog">데브로그 읽기</a>
-				<a class="jg-btn jg-btn--secondary" href="/about">JUSIAI GAMES 소개</a>
+	<section class="hero jg-night" aria-labelledby="hero-title">
+		<span class="jg-stairs" aria-hidden="true"></span>
+		<svg class="hero__stars" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" aria-hidden="true">
+			{
+				STARS.map(([x, y, color, cross]) =>
+					cross ? (
+						<path class={`star star--${color}`} d={`M${x} ${y - 1}h1v1h1v1h-1v1h-1v-1h-1v-1h1z`} />
+					) : (
+						<rect class={`star star--${color}`} x={x} y={y} width="1" height="1" />
+					),
+				)
+			}
+		</svg>
+		<div class="hero__body">
+			<img class="hero__icon jg-pixel" src={icon.src} width="160" height="160" alt="" />
+			<div class="hero__text">
+				<h1 id="hero-title" class="jg-underline">{SITE_TAGLINE}</h1>
+				<p class="hero__sub">1인 게임 개발 · 개발 일지 · 픽셀 아트</p>
+				<p class="hero__lead">
+					게임을 만드는 과정을 데브로그에 기록합니다. 기획, 아트, 코드, 그리고 혼자 회사를 꾸려가는 이야기까지.
+				</p>
+				<div class="hero__actions">
+					<a class="jg-btn" href="/devlog">데브로그 읽기</a>
+					<a class="jg-btn jg-btn--secondary" href="/about">{SITE_TITLE} 소개</a>
+				</div>
 			</div>
 		</div>
-		<img class="hero__mark" src={guppyMark.src} width={guppyMark.width} height={guppyMark.height} alt="" />
-		<svg class="hero__weeds" viewBox="0 0 400 120" aria-hidden="true" preserveAspectRatio="none">
-			<path d="M262 120 C254 96 276 84 266 60 C260 46 272 34 268 22"></path>
-			<path d="M300 120 C306 104 290 94 300 74"></path>
-			<path d="M372 120 C380 96 358 84 368 52"></path>
-		</svg>
+		<span class="jg-stairs jg-stairs--up" aria-hidden="true"></span>
 	</section>
 
 	<section class="latest" aria-labelledby="latest-title">
@@ -55,82 +98,81 @@ const latestPosts = (await getCollection('devlog'))
 <style>
 	.hero {
 		position: relative;
-		display: grid;
-		grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-		align-items: center;
-		gap: var(--space-6);
-		padding: var(--space-10) var(--space-10) var(--space-16);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		border-radius: var(--radius-md);
-		background: var(--mint-water);
-		color: var(--ink);
 		overflow: hidden;
 	}
-	.hero__text {
+	.hero > .jg-stairs {
 		position: relative;
 		z-index: 1;
+	}
+	.hero__stars {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.star--cream {
+		fill: var(--home-cream);
+	}
+	.star--gold {
+		fill: var(--lamp-gold);
+	}
+	.star--coral {
+		fill: var(--peach-coral);
+	}
+	.star--spark {
+		fill: var(--sky-spark);
+	}
+	.hero__body {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: var(--space-10);
+		padding: var(--space-16) var(--space-10);
+	}
+	/* 40×40칸 아이콘: 160px = 칸당 4px, 120px = 칸당 3px. 배너처럼 Night Panel 테두리 */
+	.hero__icon {
+		flex: none;
+		box-sizing: content-box;
+		width: 160px;
+		height: 160px;
+		padding: 8px;
+		border-radius: 36px;
+		background: var(--night-panel);
+	}
+	.hero__text {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-4);
 		min-width: 0;
 	}
-	.hero__eyebrow {
-		margin: 0;
-		font-size: 13px;
-		line-height: 18px;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		color: var(--heading);
-	}
 	h1 {
 		margin: 0;
 		font-size: 44px;
-		line-height: 50px;
+		line-height: 52px;
 		font-weight: 800;
 		letter-spacing: -0.02em;
-		color: var(--heading);
+		color: var(--home-cream);
+	}
+	.hero__sub {
+		margin: 0;
+		font-size: 17px;
+		line-height: 26px;
+		font-weight: 700;
+		color: var(--lamp-gold);
 	}
 	.hero__lead {
 		margin: 0;
 		max-width: 36em;
-		color: var(--ink);
 	}
 	.hero__actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-3);
 		margin-top: var(--space-2);
-	}
-	.hero__mark {
-		position: relative;
-		z-index: 1;
-		width: 100%;
-		height: auto;
-		max-width: 360px;
-		justify-self: center;
-		animation: swim 6s ease-in-out infinite;
-	}
-	.hero__weeds {
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		width: 100%;
-		height: 80px;
-	}
-	.hero__weeds path {
-		fill: none;
-		stroke: var(--pastel-lime);
-		stroke-width: 7;
-		stroke-linecap: round;
-	}
-	@keyframes swim {
-		0%,
-		100% {
-			transform: translate(0, 0);
-		}
-		50% {
-			transform: translate(-8px, -6px);
-		}
 	}
 
 	.latest {
@@ -145,6 +187,7 @@ const latestPosts = (await getCollection('devlog'))
 	}
 	.latest__head h2 {
 		margin: 0;
+		color: var(--heading);
 		font-size: 20px;
 		line-height: 28px;
 		font-weight: 700;
@@ -155,18 +198,21 @@ const latestPosts = (await getCollection('devlog'))
 	}
 
 	@media (max-width: 720px) {
-		.hero {
-			grid-template-columns: minmax(0, 1fr);
-			padding: var(--space-6) var(--space-6) var(--space-16);
+		.hero__body {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--space-6);
+			padding: var(--space-10) var(--space-6);
 		}
-		.hero__mark {
-			grid-row: 1;
-			max-width: 200px;
-			justify-self: start;
+		.hero__icon {
+			width: 120px;
+			height: 120px;
+			padding: 6px;
+			border-radius: 28px;
 		}
 		h1 {
 			font-size: 32px;
-			line-height: 38px;
+			line-height: 40px;
 		}
 	}
 </style>

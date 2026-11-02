@@ -4,7 +4,8 @@ import { CONTACT_EMAIL, GITHUB_URL, NAV_ITEMS, SITE_TITLE } from '../consts';
 const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
+<footer class="site-footer jg-night">
+	<span class="jg-stairs" aria-hidden="true"></span>
 	<div class="site-footer__inner">
 		<nav aria-label="바닥 메뉴">
 			<ul>
@@ -27,10 +28,6 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
-	.site-footer {
-		background: var(--river-stone);
-		color: var(--ink);
-	}
 	.site-footer__inner {
 		display: flex;
 		flex-wrap: wrap;
@@ -53,7 +50,7 @@ const year = new Date().getFullYear();
 		list-style: none;
 	}
 	ul a {
-		color: var(--ink);
+		color: var(--text);
 		font-weight: 600;
 		text-decoration: none;
 	}
@@ -64,9 +61,9 @@ const year = new Date().getFullYear();
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-2) var(--space-4);
-		color: var(--water-mist);
+		color: var(--muted);
 	}
 	.site-footer__meta a {
-		color: var(--water-mist);
+		color: var(--muted);
 	}
 </style>

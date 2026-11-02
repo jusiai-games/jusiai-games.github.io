@@ -11,7 +11,7 @@ JUSIAI GAMES 데브로그(https://jusiai-games.github.io)의 소스입니다. As
 | `npm install` | 의존성 설치, 커밋 계정 검사 hook 활성화 |
 | `npm run dev` | 개발 서버 (http://localhost:4321) |
 | `npm run build` | 타입 검사 후 `dist/`에 빌드 |
-| `npm run favicons` | `src/assets/brand/guppy-app-icon.svg`로 파비콘 세트 생성 |
+| `npm run favicons` | `src/assets/brand/jusiai-icon-8bit-*.png`로 파비콘 세트 생성 |
 
 ## README
 
@@ -57,16 +57,23 @@ README는 공개 저장소를 찾아온 사람을 위한 **회사 소개**입니
 
 ## 디자인 규칙
 
-이 블로그는 JUSIAI GAMES 디자인 시스템(Aquarium Palette, 파스텔)을 따릅니다.
+JUSIAI GAMES는 개발자 한 명의 1인 게임 개발사이고, 블로그는 "늦은 밤의 작업 책상" 디자인 시스템을 따릅니다. 핵심 색은 Night Desk(바탕), Lamp Gold(강조), Home Cream(글자), Peach Coral(포인트) 네 가지입니다.
 
-- 색은 `src/styles/tokens.css`의 토큰(`var(--ink)`, `var(--action)` …)으로만 씁니다. `#hex`를 컴포넌트나 페이지에 직접 쓰지 않습니다. 새 색이 필요하면 먼저 토큰을 추가합니다.
-- 버튼, 배지, 태그, 카드, 콜아웃, 본문은 `src/styles/components.css`의 `jg-` 클래스를 씁니다.
-- 본문 글자는 `ink`, 제목은 `heading`(라이트에서 `deep-moss`), 링크는 `sky-deep`, 보조 강조는 `soft-soil`, 캡션·날짜는 `water-mist`입니다.
-- `pastel-lime`, `butter-gold`, `peach-coral`은 면으로만 쓰고 위 글자는 `on-accent`(Ink)입니다. `blush-pink`는 작은 장식, `sky-neon`은 아이콘·작은 포인트에만 씁니다.
-- 바탕은 `surface`(페이지), `river-stone`(카드·인용·코드), `mint-water`(브랜드 섹션)입니다. `mint-water` 위에는 링크와 `water-mist`를 쓰지 않습니다(4.5:1 미만).
-- 기본 버튼은 `pastel-lime` 면에 Ink 글자, 보조 버튼은 `heading` 색 테두리와 글자입니다.
-- `neon-red`는 LIVE, NEW, 경고 같은 작은 표시에만 씁니다. 신호라서 파스텔보다 진하게 둡니다.
-- 모서리는 `radius-md`(14px), 그림자는 쓰지 않습니다. 구분은 `surface`와 `river-stone`의 면 색 차이로 합니다.
+- 색은 `src/styles/tokens.css`의 토큰으로만 씁니다. UI에는 역할 토큰(`var(--bg)`, `var(--panel)`, `var(--text)`, `var(--heading)`, `var(--link)`, `var(--muted)`, `var(--action)` …)을 먼저 쓰고, 테마와 상관없는 브랜드 면에만 팔레트 토큰(`var(--night-desk)`, `var(--lamp-gold)` …)을 씁니다. `#hex`를 컴포넌트나 페이지에 직접 쓰지 않습니다. 새 색이 필요하면 먼저 토큰을 추가합니다.
+- 버튼, 배지, 태그, 카드, 콜아웃, 본문, 로고는 `src/styles/components.css`의 `jg-` 클래스를 씁니다.
+- 헤더, 홈 히어로, 푸터는 두 테마 모두 Night Desk입니다. 이런 영역에는 `jg-night` 클래스를 붙여 역할 토큰을 밤 색으로 바꿉니다. 경계는 `jg-stairs`(Night Panel 픽셀 계단)로 표시합니다.
+- 라이트 테마(글 본문): 바탕 `surface`, 카드·인용·코드 `river-stone`, 본문 `ink`, 제목 `deep-moss`, 링크 `sky-deep`, 보조 강조 `soft-soil`, 캡션·날짜 `water-mist`.
+- 다크 테마와 `jg-night`: 바탕 `night-desk`, 카드 `night-panel`, 본문 `home-cream`, 제목 `lamp-gold`, 링크 `peach-coral`, 캡션 `moon-gray`.
+- `lamp-gold`, `peach-coral`, `home-cream` 면 위 글자는 `on-accent`(Ink)입니다. 비율은 Night Desk·Night Panel 70 / Home Cream 20 / Lamp Gold·Peach Coral 10을 목표로 합니다.
+- 기본 버튼은 `lamp-gold` 면에 Ink 글자, 보조 버튼은 `heading` 색 테두리와 글자입니다. 제목 밑 짧은 밑줄은 `jg-underline`(Peach Coral)입니다.
+- `neon-red`는 LIVE, NEW, 경고 같은 작은 표시에만 쓰고 위 글자는 `on-signal`(흰색)입니다. Home Cream은 4.45:1이라 쓰지 않습니다.
+- 어항 색 `sky-spark`, `mint-water`, `pastel-lime`, `blush-pink`는 별 같은 아주 작은 장식에만 씁니다. 면이나 글자에는 쓰지 않습니다.
+- 모서리는 `radius-md`(14px), 그림자는 쓰지 않습니다. 구분은 면 색 차이와 픽셀 계단으로 합니다.
 - 글자 대비는 라이트·다크 모두 4.5:1 이상이어야 합니다.
-- 로고는 `src/assets/brand/`의 구피 파일만 쓰고 색이나 비율을 바꾸지 않습니다(몸통 `butter-gold`, 꼬리·지느러미 `peach-coral`, 꼬리 끝 크림색, 볼 `blush-pink`, 눈 `ink`, 바탕 `mint-water`). 원본은 디자인 시스템의 파스텔 앱 아이콘과 마크입니다. 파비콘은 `npm run favicons`로만 다시 만듭니다.
+- 브랜드 이미지는 `src/assets/brand/`의 파일만 쓰고 색이나 비율을 바꾸지 않습니다.
+  - 로고(`Logo.astro`)는 회사 이름 왼쪽의 작은 얼굴(Lamp Gold 칸) + 8비트 워드마크(JUSIAI `home-cream`, GAMES `lamp-gold`, `peach-coral` 밑줄)입니다. 워드마크 픽셀은 `jusiai-icon-8bit-square-1024.png`에서 옮겼습니다.
+  - 캐릭터는 32×32 픽셀입니다. 화면마다 회사 이름 왼쪽 작은 얼굴 하나가 기본이고, 크게 쓸 때는 정확히 2·4·8배(64·128·256px)로만 키웁니다. 8비트 아이콘은 40×40칸이라 40의 배수(120·160px)로 씁니다.
+  - 픽셀 이미지는 Astro `<Image>`로 다시 인코딩하지 않고 원본 `src`를 `jg-pixel`(`image-rendering: pixelated`)로 씁니다.
+  - 기본 OG 이미지는 `jusiai-games-banner-2560x1440.png`입니다.
+  - 파비콘은 `npm run favicons`로만 다시 만듭니다.
 - 토큰이나 컴포넌트를 바꾸면 디자인 시스템 문서(https://claude.ai/artifact/TFsB4FPK46UPLuyBiGv5TY)와 맞지 않게 됩니다. 사용자에게 알려 함께 갱신합니다.
