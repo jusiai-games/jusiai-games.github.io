@@ -17,8 +17,8 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background: var(--bg);
-	color: var(--text);
+	background: var(--surface);
+	color: var(--ink);
 	font-family: var(--font-sans);
 	font-size: 16px;
 	line-height: 26px;
@@ -61,7 +61,7 @@ img {
 }
 
 ::selection {
-	background: var(--lamp-gold);
+	background: var(--butter-gold);
 	color: var(--on-accent);
 }
 
@@ -90,7 +90,7 @@ img {
 	margin: 0;
 	padding: var(--space-10) var(--space-6);
 	border-radius: var(--radius-md);
-	background: var(--panel);
+	background: var(--card);
 	color: var(--muted);
 	text-align: center;
 }

@@ -10,23 +10,9 @@ const { href } = Astro.props;
 const Tag = href ? 'a' : 'span';
 ---
 
-<!--
-	워드마크 픽셀은 src/assets/brand/jusiai-icon-8bit-square-1024.png(40×40칸)에서
-	JUSIAI(10~16행)와 GAMES(21~27행)를 한 줄로 옮긴 것입니다. 한 칸 = 3px.
--->
-<Tag class="jg-logo" href={href} aria-label={href ? `${SITE_TITLE} 홈` : SITE_TITLE} role={href ? undefined : 'img'}>
+<Tag class="jg-logo" href={href} aria-label={href ? `${SITE_TITLE} 홈` : undefined}>
 	<span class="jg-logo__face" aria-hidden="true">
 		<img class="jg-pixel" src={character.src} width="64" height="64" alt="" />
 	</span>
-	<svg class="jg-logo__word" viewBox="0 0 64 9" shape-rendering="crispEdges" aria-hidden="true">
-		<path
-			class="jg-logo__jusiai"
-			d="M2 0h3v1H2zM6 0h1v1H6zM10 0h1v1h-1zM13 0h4v1h-4zM18 0h3v1h-3zM23 0h3v1h-3zM28 0h3v1h-3zM4 1h1v5H4zM6 1h1v5H6zM10 1h1v5h-1zM12 1h1v2h-1zM19 1h1v5h-1zM22 1h1v6h-1zM26 1h1v6h-1zM29 1h1v5h-1zM13 3h3v1h-3zM23 3h3v1h-3zM0 4h1v2H0zM16 4h1v2h-1zM1 6h3v1H1zM7 6h3v1H7zM12 6h4v1h-4zM18 6h3v1h-3zM28 6h3v1h-3z"
-		></path>
-		<path
-			class="jg-logo__games"
-			d="M36 0h3v1h-3zM42 0h3v1h-3zM47 0h1v1h-1zM51 0h1v1h-1zM53 0h5v1h-5zM60 0h4v1h-4zM35 1h1v5h-1zM39 1h1v1h-1zM41 1h1v6h-1zM45 1h1v6h-1zM47 1h2v1h-2zM50 1h2v1h-2zM53 1h1v6h-1zM59 1h1v2h-1zM47 2h1v5h-1zM49 2h1v2h-1zM51 2h1v5h-1zM37 3h3v1h-3zM42 3h3v1h-3zM54 3h3v1h-3zM60 3h3v1h-3zM39 4h1v2h-1zM63 4h1v2h-1zM36 6h3v1h-3zM54 6h4v1h-4zM59 6h4v1h-4z"
-		></path>
-		<rect class="jg-logo__underline" x="0" y="8" width="64" height="1"></rect>
-	</svg>
+	<span class="jg-logo__word">{SITE_TITLE}</span>
 </Tag>

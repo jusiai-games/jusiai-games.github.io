@@ -1,56 +1,40 @@
 /*
-  JUSIAI GAMES 디자인 토큰 (Night Desk Palette)
-  - 핵심 네 가지: Night Desk(바탕), Lamp Gold(강조), Home Cream(글자), Peach Coral(포인트)
-  - 팔레트 토큰은 브랜드 색 그대로, UI는 역할 토큰(bg, panel, text, heading, link …)을 우선 사용
-  - 헤더·히어로·푸터는 두 테마 모두 Night Desk(.jg-night)
-  - 글 본문은 라이트(Surface)가 기본, 다크 테마는 Night Desk·Night Panel
-  - 다크 테마: OS 설정(prefers-color-scheme) 또는 <html data-theme="dark">
-  - 대비(본문 기준): 라이트 text 10.6, heading 5.9, link 4.8, muted 5.0 / 다크 text 11.7, heading 8.8, link 6.3, muted 6.6
+  JUSIAI GAMES 디자인 토큰 — 디자인 시스템 project/tokens.json과 같은 이름·값
+  - 테마: Night(기본, night-desk 바탕)와 Blog Light(글 본문)
+  - 블로그는 OS 설정(prefers-color-scheme) 또는 <html data-theme>로 테마를 고르고,
+    헤더·히어로·푸터는 .jg-night로 늘 Night 테마
+  - UI에는 역할 토큰(surface, card, ink, heading, link, muted, action …)을 우선 사용
+  - 대비: Blog Light ink 12.3, link 5.4, muted 5.8 / Night ink 11.7, heading·link 8.8, muted 6.6
 */
 
 :root {
 	color-scheme: light;
 
-	/* 핵심 */
-	--night-desk: #2d3343; /* 늦은 밤의 작업 책상. 헤더·배너 바탕 */
-	--night-panel: #3a4256; /* 밤 책상 위 모니터. Night Desk 위 카드 */
-	--lamp-gold: #ffd17a; /* 스탠드 불빛. 면·제목 강조, 위 글자는 on-accent */
-	--lamp-gold-hover: #f5c25e;
-	--home-cream: #fff6e3; /* Night Desk 위 제목·본문 글자 */
+	/* 핵심 5색 */
+	--night-desk: #2d3343; /* 늦은 밤의 작업 책상 */
+	--night-panel: #3a4256; /* night-desk 위 카드 */
+	--butter-gold: #ffd17a; /* Lamp Gold. 스탠드 불빛, 강조 */
+	--home-cream: #fff6e3; /* night-desk 위 글자 */
 	--peach-coral: #ff9e7a; /* 밑줄, 진행 표시 */
-	--moon-gray: #b7bcc8; /* Night Desk 위 캡션 */
-	--ink: #3a3f33; /* 밝은 면 위 글자 */
-	--neon-red: #c9434c; /* 신호 전용, 작게 */
 
-	/* 장식 (아주 작게만) */
-	--sky-spark: #7ccbe3;
-	--blush-pink: #ff9f93;
-	--pastel-lime: #b5d36a;
-	--mint-water: #e6f0c4;
+	/* 보조 */
+	--moon-gray: #b7bcc8; /* night-desk 위 캡션 */
+	--on-accent: #2d3343; /* butter-gold·peach-coral·home-cream 면 위 글자. 두 테마 공통 */
+	--neon-red: #c9434c; /* 신호 전용, 작게, 한 화면에 하나 */
 
-	/* 블로그 밝은 화면 */
+	/* 역할 (Blog Light) */
 	--surface: #fffcf4;
-	--river-stone: #f2f7dc;
-	--sky-deep: #2b7898;
-	--deep-moss: #4f6b28;
-	--soft-soil: #8a6544;
-	--water-mist: #6b7064;
-
-	/* 역할 */
-	--bg: var(--surface);
-	--panel: var(--river-stone);
-	--text: var(--ink);
-	--heading: var(--deep-moss);
-	--link: var(--sky-deep);
-	--muted: var(--water-mist);
-	--accent-text: var(--soft-soil);
-	--line: #e4e8cc;
-	--action: var(--lamp-gold);
-	--action-hover: var(--lamp-gold-hover);
-	--on-accent: #3a3f33; /* Lamp Gold·Peach Coral·Home Cream 면 위 글자. 두 테마 공통 */
-	--on-action: var(--on-accent);
-	--on-signal: #ffffff; /* Neon Red 위 글자 4.8:1 (Home Cream은 4.45:1로 미달) */
-	--focus-ring: var(--sky-deep);
+	--card: #f6f0e3;
+	--ink: var(--night-desk);
+	--heading: var(--night-desk);
+	--muted: #5e6475;
+	--link: #a84e2b;
+	--line: #e8e0cc;
+	--action: var(--night-desk);
+	--action-hover: var(--night-panel);
+	--on-action: var(--home-cream);
+	--on-signal: var(--surface);
+	--focus-ring: var(--night-desk);
 
 	/* 글꼴 */
 	--font-sans: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
@@ -75,34 +59,41 @@
 	--wide-width: 1040px;
 }
 
+/* Night 테마 */
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme='light']) {
 		color-scheme: dark;
-		--bg: var(--night-desk);
-		--panel: var(--night-panel);
-		--text: var(--home-cream);
-		--heading: var(--lamp-gold);
-		--link: var(--peach-coral);
+		--surface: var(--night-desk);
+		--card: var(--night-panel);
+		--ink: var(--home-cream);
+		--heading: var(--butter-gold);
 		--muted: var(--moon-gray);
-		--accent-text: var(--lamp-gold);
-		--line: #4b546b;
-		--action-hover: #ffdc98;
-		--focus-ring: var(--lamp-gold);
+		--link: var(--butter-gold);
+		--line: #4a536b;
+		--action: var(--butter-gold);
+		--action-hover: #ffdc96;
+		--on-action: var(--on-accent);
+		--neon-red: #ee7a80;
+		--on-signal: var(--night-desk);
+		--focus-ring: var(--butter-gold);
 	}
 }
 
-/* .jg-night: 테마와 상관없이 늘 Night Desk인 영역(헤더, 히어로, 푸터) */
+/* .jg-night: 테마와 상관없이 늘 Night인 영역(헤더, 히어로, 푸터) */
 :root[data-theme='dark'],
 .jg-night {
 	color-scheme: dark;
-	--bg: var(--night-desk);
-	--panel: var(--night-panel);
-	--text: var(--home-cream);
-	--heading: var(--lamp-gold);
-	--link: var(--peach-coral);
+	--surface: var(--night-desk);
+	--card: var(--night-panel);
+	--ink: var(--home-cream);
+	--heading: var(--butter-gold);
 	--muted: var(--moon-gray);
-	--accent-text: var(--lamp-gold);
-	--line: #4b546b;
-	--action-hover: #ffdc98;
-	--focus-ring: var(--lamp-gold);
+	--link: var(--butter-gold);
+	--line: #4a536b;
+	--action: var(--butter-gold);
+	--action-hover: #ffdc96;
+	--on-action: var(--on-accent);
+	--neon-red: #ee7a80;
+	--on-signal: var(--night-desk);
+	--focus-ring: var(--butter-gold);
 }

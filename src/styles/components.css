@@ -1,69 +1,26 @@
-/* JUSIAI GAMES 컴포넌트 스타일 (Night Desk Palette) */
+/* JUSIAI GAMES 컴포넌트 스타일 — 디자인 시스템 components/bundle.css와 동일하게 유지하고, 블로그 전용은 맨 아래에 둡니다. */
 
 .jg-root {
   font-family: var(--font-sans);
-  color: var(--text);
-  background: var(--bg);
+  color: var(--ink);
+  background: var(--surface);
   -webkit-font-smoothing: antialiased;
 }
 
-/* 늘 Night Desk인 영역. 역할 토큰은 tokens.css의 .jg-night가 바꿉니다. */
-.jg-night {
-  background: var(--night-desk);
-  color: var(--text);
-}
-
-/* 픽셀 아트는 2·4·8배 정수배로만 키우고 보간하지 않습니다. */
-.jg-pixel { image-rendering: pixelated; }
-
-/* ---------- Pixel stairs (배너 위아래 계단 테두리) ---------- */
-.jg-stairs {
-  display: block;
-  height: 12px;
-  background: var(--night-panel);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 3'%3E%3Cpath d='M0 0h24v1H0zM0 1h3v1H0zM4 1h2v1H4zM8 1h5v1H8zM15 1h1v1h-1zM18 1h4v1h-4zM1 2h1v1H1zM9 2h2v1H9zM19 2h1v1h-1z'/%3E%3C/svg%3E") 0 0 / 96px 12px repeat-x;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 3'%3E%3Cpath d='M0 0h24v1H0zM0 1h3v1H0zM4 1h2v1H4zM8 1h5v1H8zM15 1h1v1h-1zM18 1h4v1h-4zM1 2h1v1H1zM9 2h2v1H9zM19 2h1v1h-1z'/%3E%3C/svg%3E") 0 0 / 96px 12px repeat-x;
-}
-.jg-stairs--up { transform: scaleY(-1); }
-
-/* ---------- Logo (작은 얼굴 + 8비트 워드마크) ---------- */
+/* ---------- Logo ---------- */
 .jg-logo {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
+  color: var(--ink);
   text-decoration: none;
 }
-.jg-logo__face {
-  position: relative;
-  flex: none;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background: var(--lamp-gold);
-  overflow: hidden;
-}
-/* 32×32 캐릭터를 2배(64px)로 두고 얼굴 20×20칸만 보이게 자릅니다. */
-.jg-logo__face img {
-  position: absolute;
-  left: -12px;
-  top: 2px;
-  width: 64px;
-  height: 64px;
-  max-width: none;
-}
-.jg-logo__word { display: block; width: 192px; height: 27px; }
-.jg-logo__jusiai { fill: var(--home-cream); }
-.jg-logo__games { fill: var(--lamp-gold); }
-.jg-logo__underline { fill: var(--peach-coral); }
-
-/* ---------- Coral underline (제목 밑 짧은 밑줄) ---------- */
-.jg-underline::after {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 6px;
-  margin-top: var(--space-3);
-  background: var(--peach-coral);
+.jg-logo__word {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 /* ---------- Button ---------- */
@@ -89,7 +46,7 @@
 .jg-btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 .jg-btn:disabled, .jg-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
 .jg-btn--secondary { background: transparent; border-color: var(--heading); color: var(--heading); }
-.jg-btn--secondary:hover { background: var(--panel); border-color: var(--heading); }
+.jg-btn--secondary:hover { background: var(--card); border-color: var(--heading); }
 .jg-btn--sm { padding: var(--space-1) var(--space-3); font-size: 13px; line-height: 18px; }
 
 /* ---------- Badge ---------- */
@@ -104,7 +61,7 @@
   line-height: 16px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  background: var(--lamp-gold);
+  background: var(--butter-gold);
   color: var(--on-accent);
 }
 .jg-badge--new, .jg-badge--live { background: var(--neon-red); color: var(--on-signal); }
@@ -115,7 +72,6 @@
   background: currentColor;
 }
 .jg-badge--coral { background: var(--peach-coral); color: var(--on-accent); }
-.jg-badge--cream { background: var(--home-cream); color: var(--on-accent); }
 
 /* ---------- Tag ---------- */
 .jg-tag {
@@ -123,8 +79,8 @@
   align-items: center;
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-pill);
-  background: var(--panel);
-  color: var(--text);
+  background: var(--card);
+  color: var(--ink);
   font-family: var(--font-sans);
   font-size: 13px;
   line-height: 18px;
@@ -143,8 +99,8 @@ a.jg-tag:hover { background: var(--line); }
   gap: var(--space-3);
   padding: var(--space-4);
   border-radius: var(--radius-md);
-  background: var(--panel);
-  color: var(--text);
+  background: var(--card);
+  color: var(--ink);
   text-decoration: none;
   min-width: 0;
 }
@@ -154,7 +110,7 @@ a.jg-tag:hover { background: var(--line); }
   aspect-ratio: 2 / 1;
   object-fit: cover;
   border-radius: calc(var(--radius-md) - 4px);
-  background: var(--night-desk);
+  background: var(--night-panel);
 }
 .jg-post-card__meta {
   display: flex;
@@ -174,12 +130,7 @@ a.jg-tag:hover { background: var(--line); }
   text-wrap: balance;
 }
 .jg-post-card__desc { margin: 0; font-size: 14px; line-height: 22px; }
-a.jg-post-card:hover .jg-post-card__title {
-  text-decoration: underline;
-  text-decoration-color: var(--peach-coral);
-  text-decoration-thickness: 3px;
-  text-underline-offset: 5px;
-}
+a.jg-post-card:hover .jg-post-card__title { text-decoration: underline; text-underline-offset: 4px; }
 a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 
 /* ---------- Callout ---------- */
@@ -190,20 +141,20 @@ a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-off
   row-gap: var(--space-1);
   padding: var(--space-4) var(--space-6);
   border-radius: var(--radius-md);
-  background: var(--panel);
-  color: var(--text);
+  background: var(--card);
+  color: var(--ink);
   font-family: var(--font-sans);
 }
-/* 점은 픽셀 하나처럼 네모로 */
 .jg-callout__dot {
   grid-row: 1;
   align-self: center;
   width: 10px; height: 10px;
-  background: var(--peach-coral);
+  border-radius: var(--radius-pill);
+  background: var(--butter-gold);
 }
 .jg-callout__label { grid-row: 1; font-size: 13px; line-height: 18px; font-weight: 700; }
 .jg-callout__body { grid-column: 2; margin: 0; font-size: 15px; line-height: 24px; }
-.jg-callout--note .jg-callout__dot { background: var(--sky-spark); }
+.jg-callout--note .jg-callout__dot { background: var(--peach-coral); }
 .jg-callout--warn .jg-callout__dot { background: var(--neon-red); }
 
 /* ---------- Prose (blog article body) ---------- */
@@ -212,7 +163,7 @@ a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-off
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 26px;
-  color: var(--text);
+  color: var(--ink);
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
@@ -222,7 +173,6 @@ a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-off
 .jg-prose h2 { font-size: 20px; line-height: 28px; font-weight: 700; margin-top: var(--space-10); text-wrap: balance; }
 .jg-prose h3 { font-size: 17px; line-height: 26px; font-weight: 700; margin-top: var(--space-6); }
 .jg-prose p, .jg-prose ul, .jg-prose ol { margin-bottom: 0; }
-.jg-prose li::marker { color: var(--accent-text); }
 .jg-prose a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
 .jg-prose a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-radius: 2px; }
 .jg-prose strong { font-weight: 700; }
@@ -231,13 +181,13 @@ a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-off
   font-size: 0.875em;
   padding: 1px 6px;
   border-radius: var(--radius-sm);
-  background: var(--panel);
+  background: var(--card);
 }
 .jg-prose pre {
   margin-left: 0; margin-right: 0;
   padding: var(--space-4);
   border-radius: var(--radius-md);
-  background: var(--panel);
+  background: var(--card);
   overflow-x: auto;
   font-size: 14px;
   line-height: 22px;
@@ -246,11 +196,60 @@ a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-off
 .jg-prose blockquote {
   margin-left: 0; margin-right: 0;
   padding: var(--space-3) var(--space-6);
-  border-left: 4px solid var(--peach-coral);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  background: var(--panel);
-  color: var(--text);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--ink);
 }
 .jg-prose img { max-width: 100%; border-radius: var(--radius-md); }
 .jg-prose hr { border: 0; height: 1px; background: var(--line); margin: var(--space-10) 0; }
 .jg-prose .jg-prose__meta { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--muted); }
+
+/* ================= 블로그 전용 ================= */
+
+/* 늘 Night인 영역. 역할 토큰은 tokens.css의 .jg-night가 바꿉니다. */
+.jg-night {
+  background: var(--night-desk);
+  color: var(--ink);
+}
+
+/* 픽셀 아트는 정수 배율로만 키우고 보간하지 않습니다. */
+.jg-pixel { image-rendering: pixelated; }
+
+/* 로고 마크: 32×32 캐릭터를 2배(64px)로 두고 얼굴 20×20칸만 butter-gold 칸에 보이게 자릅니다. */
+.jg-logo__face {
+  position: relative;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--butter-gold);
+  overflow: hidden;
+}
+.jg-logo__face img {
+  position: absolute;
+  left: -12px;
+  top: 2px;
+  width: 64px;
+  height: 64px;
+  max-width: none;
+}
+
+/* 배너 위아래의 night-panel 픽셀 계단 */
+.jg-stairs {
+  display: block;
+  height: 12px;
+  background: var(--night-panel);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 3'%3E%3Cpath d='M0 0h24v1H0zM0 1h3v1H0zM4 1h2v1H4zM8 1h5v1H8zM15 1h1v1h-1zM18 1h4v1h-4zM1 2h1v1H1zM9 2h2v1H9zM19 2h1v1h-1z'/%3E%3C/svg%3E") 0 0 / 96px 12px repeat-x;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 3'%3E%3Cpath d='M0 0h24v1H0zM0 1h3v1H0zM4 1h2v1H4zM8 1h5v1H8zM15 1h1v1h-1zM18 1h4v1h-4zM1 2h1v1H1zM9 2h2v1H9zM19 2h1v1h-1z'/%3E%3C/svg%3E") 0 0 / 96px 12px repeat-x;
+}
+.jg-stairs--up { transform: scaleY(-1); }
+
+/* 제목 밑 짧은 peach-coral 밑줄 */
+.jg-underline::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 6px;
+  margin-top: var(--space-3);
+  background: var(--peach-coral);
+}

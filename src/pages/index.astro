@@ -10,13 +10,13 @@ const latestPosts = (await getCollection('devlog'))
 	.slice(0, 4);
 
 // 배너의 픽셀 별. [x, y, 색, 십자 여부] — 좌표는 160×90칸 기준
-const STARS: [number, number, 'cream' | 'gold' | 'coral' | 'spark', boolean][] = [
-	[18, 6, 'spark', false],
+const STARS: [number, number, 'cream' | 'gold' | 'coral', boolean][] = [
+	[18, 6, 'cream', false],
 	[7, 17, 'gold', false],
 	[45, 13, 'coral', false],
 	[61, 17, 'coral', true],
 	[79, 9, 'cream', true],
-	[73, 18, 'spark', false],
+	[73, 18, 'gold', false],
 	[99, 7, 'cream', true],
 	[108, 6, 'coral', false],
 	[102, 21, 'coral', false],
@@ -24,18 +24,18 @@ const STARS: [number, number, 'cream' | 'gold' | 'coral' | 'spark', boolean][] =
 	[131, 5, 'coral', false],
 	[142, 15, 'coral', false],
 	[156, 13, 'coral', true],
-	[146, 26, 'spark', false],
+	[146, 26, 'cream', false],
 	[10, 32, 'cream', false],
-	[4, 53, 'spark', false],
-	[141, 47, 'spark', true],
-	[152, 48, 'spark', false],
+	[4, 53, 'gold', false],
+	[141, 47, 'cream', true],
+	[152, 48, 'gold', false],
 	[26, 66, 'gold', false],
 	[42, 72, 'coral', true],
 	[65, 68, 'cream', false],
 	[91, 70, 'gold', true],
 	[106, 70, 'cream', true],
-	[116, 73, 'spark', true],
-	[126, 66, 'spark', false],
+	[116, 73, 'cream', true],
+	[126, 66, 'gold', false],
 	[130, 80, 'cream', true],
 	[27, 79, 'cream', false],
 	[88, 81, 'gold', false],
@@ -118,13 +118,10 @@ const STARS: [number, number, 'cream' | 'gold' | 'coral' | 'spark', boolean][] =
 		fill: var(--home-cream);
 	}
 	.star--gold {
-		fill: var(--lamp-gold);
+		fill: var(--butter-gold);
 	}
 	.star--coral {
 		fill: var(--peach-coral);
-	}
-	.star--spark {
-		fill: var(--sky-spark);
 	}
 	.hero__body {
 		position: relative;
@@ -151,7 +148,7 @@ const STARS: [number, number, 'cream' | 'gold' | 'coral' | 'spark', boolean][] =
 	}
 	h1 {
 		margin: 0;
-		font-size: 44px;
+		font-size: 48px;
 		line-height: 52px;
 		font-weight: 800;
 		letter-spacing: -0.02em;
@@ -162,7 +159,7 @@ const STARS: [number, number, 'cream' | 'gold' | 'coral' | 'spark', boolean][] =
 		font-size: 17px;
 		line-height: 26px;
 		font-weight: 700;
-		color: var(--lamp-gold);
+		color: var(--butter-gold);
 	}
 	.hero__lead {
 		margin: 0;
