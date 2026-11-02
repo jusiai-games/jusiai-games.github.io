@@ -44,7 +44,7 @@ h3 {
 }
 
 a {
-	color: var(--neon-blue-deep);
+	color: var(--sky-deep);
 	text-underline-offset: 3px;
 }
 
@@ -61,7 +61,7 @@ img {
 }
 
 ::selection {
-	background: var(--guppy-gold);
+	background: var(--butter-gold);
 	color: var(--on-accent);
 }
 
@@ -74,6 +74,7 @@ img {
 }
 .page-head h1 {
 	margin: 0;
+	color: var(--heading);
 	font-size: 28px;
 	line-height: 36px;
 	font-weight: 700;

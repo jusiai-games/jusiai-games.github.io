@@ -57,13 +57,16 @@ README는 공개 저장소를 찾아온 사람을 위한 **회사 소개**입니
 
 ## 디자인 규칙
 
-이 블로그는 JUSIAI GAMES 디자인 시스템(Aquarium Palette)을 따릅니다.
+이 블로그는 JUSIAI GAMES 디자인 시스템(Aquarium Palette, 파스텔)을 따릅니다.
 
 - 색은 `src/styles/tokens.css`의 토큰(`var(--ink)`, `var(--action)` …)으로만 씁니다. `#hex`를 컴포넌트나 페이지에 직접 쓰지 않습니다. 새 색이 필요하면 먼저 토큰을 추가합니다.
 - 버튼, 배지, 태그, 카드, 콜아웃, 본문은 `src/styles/components.css`의 `jg-` 클래스를 씁니다.
-- 밝은 바탕 위 글자는 `ink`, `deep-moss`, `aqua-soil`, `neon-blue-deep`만 씁니다(캡션·날짜는 `water-mist`). `lime-leaf`, `guppy-gold`, `guppy-coral`은 면으로만 씁니다.
-- `neon-red`는 LIVE, NEW, 경고 같은 작은 표시에만 씁니다.
+- 본문 글자는 `ink`, 제목은 `heading`(라이트에서 `deep-moss`), 링크는 `sky-deep`, 보조 강조는 `soft-soil`, 캡션·날짜는 `water-mist`입니다.
+- `pastel-lime`, `butter-gold`, `peach-coral`은 면으로만 쓰고 위 글자는 `on-accent`(Ink)입니다. `blush-pink`는 작은 장식, `sky-neon`은 아이콘·작은 포인트에만 씁니다.
+- 바탕은 `surface`(페이지), `river-stone`(카드·인용·코드), `mint-water`(브랜드 섹션)입니다. `mint-water` 위에는 링크와 `water-mist`를 쓰지 않습니다(4.5:1 미만).
+- 기본 버튼은 `pastel-lime` 면에 Ink 글자, 보조 버튼은 `heading` 색 테두리와 글자입니다.
+- `neon-red`는 LIVE, NEW, 경고 같은 작은 표시에만 씁니다. 신호라서 파스텔보다 진하게 둡니다.
 - 모서리는 `radius-md`(14px), 그림자는 쓰지 않습니다. 구분은 `surface`와 `river-stone`의 면 색 차이로 합니다.
 - 글자 대비는 라이트·다크 모두 4.5:1 이상이어야 합니다.
-- 로고는 `src/assets/brand/`의 구피 파일만 쓰고 색이나 비율을 바꾸지 않습니다. 파비콘은 `npm run favicons`로만 다시 만듭니다.
+- 로고는 `src/assets/brand/`의 구피 파일만 쓰고 색이나 비율을 바꾸지 않습니다(몸통 `butter-gold`, 꼬리·지느러미 `peach-coral`, 볼 `blush-pink`, 눈 `ink`, 바탕 `mint-water`). 파비콘은 `npm run favicons`로만 다시 만듭니다.
 - 토큰이나 컴포넌트를 바꾸면 디자인 시스템 문서(https://claude.ai/artifact/TFsB4FPK46UPLuyBiGv5TY)와 맞지 않게 됩니다. 사용자에게 알려 함께 갱신합니다.

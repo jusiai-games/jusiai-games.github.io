@@ -15,7 +15,7 @@ const appIcon = await fs.readFile(appIconPath, 'utf8');
 const fishGroup = appIcon.slice(appIcon.indexOf('<g transform'), appIcon.indexOf('</g>') + 4).replace(/\s*<!--.*?-->/g, '');
 const fishOnly = fishGroup.replace('<g transform="translate(40 0)">', '<g>');
 const smallIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-  <rect width="1024" height="1024" rx="200" fill="#3B531A"/>
+  <rect width="1024" height="1024" rx="200" fill="#E6F0C4"/>
   <g transform="translate(512 512) scale(1.4) translate(-473 -510)">
     ${fishOnly}
   </g>
@@ -64,8 +64,8 @@ const manifest = {
 		{ src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
 		{ src: '/icon-512.png', sizes: '512x512', type: 'image/png' },
 	],
-	theme_color: '#3B531A',
-	background_color: '#F4F5EC',
+	theme_color: '#B5D36A',
+	background_color: '#FCFDF6',
 	display: 'standalone',
 };
 await fs.writeFile(path.join(publicDir, 'site.webmanifest'), JSON.stringify(manifest, null, 2) + '\n');

@@ -1,38 +1,39 @@
 /*
-  JUSIAI GAMES 디자인 토큰 (Aquarium Palette)
-  원본: JUSIAI GAMES 디자인 시스템 tokens.json
-  - 원색 토큰: 팔레트 그대로
-  - 역할 토큰(action, on-*, line, focus-ring): UI에서는 이쪽을 우선 사용
+  JUSIAI GAMES 디자인 토큰 (Aquarium Palette, 파스텔)
+  - 팔레트 토큰은 브랜드 색 그대로, UI는 역할 토큰(heading, action, on-*, line, focus-ring)을 우선 사용
   - 다크 테마: OS 설정(prefers-color-scheme) 또는 <html data-theme="dark">
+  - 대비: 라이트 기준 ink 10.6:1, heading 5.9:1, sky-deep 4.8:1 (surface 위)
 */
 
 :root {
 	color-scheme: light;
 
 	/* 팔레트 */
-	--lime-leaf: #a9c23f;
-	--lime-leaf-hover: #bbd155;
-	--deep-moss: #3b531a;
-	--guppy-gold: #f4be5e;
-	--guppy-coral: #ec8f55;
-	--neon-blue: #1e9cc4;
-	--neon-blue-deep: #146f8f;
-	--neon-red: #c8323c;
-	--aqua-soil: #6d4a2a;
-	--river-stone: #e4e7d3;
-	--surface: #f4f5ec;
-	--ink: #1e2318;
-	--water-mist: #5f6359;
+	--pastel-lime: #b5d36a; /* 대표. 면으로만, 위 글자는 on-accent */
+	--pastel-lime-hover: #a3c455;
+	--mint-water: #e6f0c4; /* 대표 바탕. 링크·water-mist 글자 금지(4.5:1 미만) */
+	--butter-gold: #ffd17a;
+	--peach-coral: #ff9e7a;
+	--blush-pink: #ff9f93; /* 작은 장식만 */
+	--sky-neon: #7ccbe3; /* 아이콘·작은 포인트만 */
+	--sky-deep: #2b7898; /* 링크 글자 */
+	--neon-red: #c9434c; /* 신호 전용, 작게 */
+	--deep-moss: #4f6b28; /* 제목 글자, 버튼 글자 */
+	--soft-soil: #8a6544;
+	--river-stone: #f2f7dc;
+	--surface: #fcfdf6;
+	--ink: #3a3f33;
+	--water-mist: #6b7064;
 
 	/* 역할 */
-	--line: #d3d7bf;
-	--action: var(--deep-moss);
-	--action-hover: #2e4214;
-	--on-accent: #1e2318;
-	--on-moss: #f4f5ec; /* deep-moss 면 위 글자. 두 테마 공통, 7.8:1 */
-	--on-action: var(--surface);
+	--heading: var(--deep-moss);
+	--line: #dde6bf;
+	--action: var(--pastel-lime);
+	--action-hover: var(--pastel-lime-hover);
+	--on-accent: #3a3f33; /* 파스텔 면 위 글자. 두 테마 공통 */
+	--on-action: var(--on-accent);
 	--on-signal: var(--surface);
-	--focus-ring: var(--neon-blue-deep);
+	--focus-ring: var(--sky-deep);
 
 	/* 글꼴 */
 	--font-sans: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
@@ -60,33 +61,33 @@
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme='light']) {
 		color-scheme: dark;
-		--neon-blue-deep: #4fc1e3;
-		--neon-red: #ec6b73;
-		--aqua-soil: #b08560;
-		--river-stone: #2e3526;
-		--surface: #1e2318;
-		--ink: #f4f5ec;
-		--water-mist: #a3a69c;
-		--line: #3a4230;
-		--action: var(--lime-leaf);
-		--action-hover: var(--lime-leaf-hover);
-		--on-action: var(--on-accent);
-		--on-signal: var(--on-accent);
+		--mint-water: #323d27;
+		--sky-deep: #7ccbe3;
+		--neon-red: #ee7a80;
+		--soft-soil: #c9a27c;
+		--river-stone: #2c3226;
+		--surface: #21251d;
+		--ink: #f2f7dc;
+		--water-mist: #a9ae9f;
+		--heading: #c9e08a;
+		--line: #3e4735;
+		--pastel-lime-hover: #c6de85;
+		--on-signal: #21251d;
 	}
 }
 
 :root[data-theme='dark'] {
 	color-scheme: dark;
-	--neon-blue-deep: #4fc1e3;
-	--neon-red: #ec6b73;
-	--aqua-soil: #b08560;
-	--river-stone: #2e3526;
-	--surface: #1e2318;
-	--ink: #f4f5ec;
-	--water-mist: #a3a69c;
-	--line: #3a4230;
-	--action: var(--lime-leaf);
-	--action-hover: var(--lime-leaf-hover);
-	--on-action: var(--on-accent);
-	--on-signal: var(--on-accent);
+	--mint-water: #323d27;
+	--sky-deep: #7ccbe3;
+	--neon-red: #ee7a80;
+	--soft-soil: #c9a27c;
+	--river-stone: #2c3226;
+	--surface: #21251d;
+	--ink: #f2f7dc;
+	--water-mist: #a9ae9f;
+	--heading: #c9e08a;
+	--line: #3e4735;
+	--pastel-lime-hover: #c6de85;
+	--on-signal: #21251d;
 }

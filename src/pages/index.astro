@@ -19,8 +19,8 @@ const latestPosts = (await getCollection('devlog'))
 				게임을 만드는 과정을 데브로그에 기록합니다. 기획, 아트, 코드, 그리고 혼자 회사를 꾸려가는 이야기까지.
 			</p>
 			<div class="hero__actions">
-				<a class="jg-btn hero__btn" href="/devlog">데브로그 읽기</a>
-				<a class="jg-btn jg-btn--secondary hero__btn--ghost" href="/about">JUSIAI GAMES 소개</a>
+				<a class="jg-btn" href="/devlog">데브로그 읽기</a>
+				<a class="jg-btn jg-btn--secondary" href="/about">JUSIAI GAMES 소개</a>
 			</div>
 		</div>
 		<img class="hero__mark" src={guppyMark.src} width={guppyMark.width} height={guppyMark.height} alt="" />
@@ -61,8 +61,8 @@ const latestPosts = (await getCollection('devlog'))
 		gap: var(--space-6);
 		padding: var(--space-10) var(--space-10) var(--space-16);
 		border-radius: var(--radius-md);
-		background: var(--deep-moss);
-		color: var(--on-moss);
+		background: var(--mint-water);
+		color: var(--ink);
 		overflow: hidden;
 	}
 	.hero__text {
@@ -79,7 +79,7 @@ const latestPosts = (await getCollection('devlog'))
 		line-height: 18px;
 		font-weight: 700;
 		letter-spacing: 0.08em;
-		color: var(--lime-leaf);
+		color: var(--heading);
 	}
 	h1 {
 		margin: 0;
@@ -87,40 +87,18 @@ const latestPosts = (await getCollection('devlog'))
 		line-height: 50px;
 		font-weight: 800;
 		letter-spacing: -0.02em;
-		color: var(--guppy-gold);
+		color: var(--heading);
 	}
 	.hero__lead {
 		margin: 0;
 		max-width: 36em;
-		color: var(--on-moss);
+		color: var(--ink);
 	}
 	.hero__actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-3);
 		margin-top: var(--space-2);
-	}
-	/* deep-moss 면 위에서는 테마와 관계없이 라임 버튼 */
-	.hero__btn {
-		background: var(--lime-leaf);
-		border-color: var(--lime-leaf);
-		color: var(--on-accent);
-	}
-	.hero__btn:hover {
-		background: var(--lime-leaf-hover);
-		border-color: var(--lime-leaf-hover);
-	}
-	.hero__btn--ghost {
-		background: transparent;
-		border-color: var(--on-moss);
-		color: var(--on-moss);
-	}
-	.hero__btn--ghost:hover {
-		background: rgb(244 245 236 / 0.12);
-		border-color: var(--on-moss);
-	}
-	.hero .jg-btn:focus-visible {
-		outline-color: var(--guppy-gold);
 	}
 	.hero__mark {
 		position: relative;
@@ -141,7 +119,7 @@ const latestPosts = (await getCollection('devlog'))
 	}
 	.hero__weeds path {
 		fill: none;
-		stroke: var(--lime-leaf);
+		stroke: var(--pastel-lime);
 		stroke-width: 7;
 		stroke-linecap: round;
 	}
