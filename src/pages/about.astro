@@ -1,7 +1,7 @@
 ---
-import character from '../assets/brand/jusiai-character-512.png';
-import { SITE_TITLE } from '../consts';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import character from "../assets/brand/jusiai-character-512.png";
+import { SITE_TITLE } from "../consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="About" description={`${SITE_TITLE}를 소개합니다.`}>
@@ -15,14 +15,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     />
     <div class="jg-prose">
       <h1 class="jg-underline">About</h1>
-      <p><strong>{SITE_TITLE}</strong>는 개발자 한 명이 AI와 함께 기획부터 아트, 코드까지 모두 맡아 게임을 만드는 1인 게임 개발 랩(Lab)입니다.</p>
       <p>
-        저는 8년 차 시니어 소프트웨어 엔지니어입니다.
-        여러 도메인에서 일하며 경험을 쌓았지만, AI가 등장한 뒤로 개발자라는 직업의 미래가 불확실해지면서 불안해졌습니다.
-        점점 빨라지는 AI 시대에 살아남으려면 지금부터 대비해야 한다고 느꼈습니다.
-        1인 게임 개발 랩을 시작한 이유는 두 가지입니다.
-        하나는 나만의 프로덕트를 만들고 싶다는 오래된 바람이고,
-        다른 하나는 AI라는 레버리지를 활용하면 예전에는 혼자서 할 수 없다고 여겼던 일도 해낼 수 있겠다는 생각입니다.
+        <strong>{SITE_TITLE}</strong>는 개발자 한 명이 AI와 함께 기획부터 아트,
+        코드까지 모두 맡아 게임을 만드는 1인 게임 개발 랩(Lab)입니다.
+      </p>
+      <p>
+        저는 8년 차 시니어 소프트웨어 엔지니어입니다. 여러 도메인에서 일하며
+        경험을 쌓았지만, AI가 등장한 뒤로 개발자라는 직업의 미래가
+        불확실해지면서 불안해졌습니다. AI가 빠르게 발전하는 시대에 살아남으려면
+        지금부터 대비해야 한다고 느꼈습니다.
+      </p>
+      <p>
+        1인 게임 개발 랩을 시작한 이유는 두 가지입니다. 하나는 나만의 프로덕트를
+        만들고 싶다는 오래된 바램이 있었고, 다른 하나는 AI라는 레버리지를 활용하면
+        예전에는 혼자서 할 수 없다고 여겼던 일들을 혼자서 해낼 수 있겠다는 기대 때문입니다.
+      </p>
+      <p>
+        퇴근 후 사랑하는 아내와 아이들이 잠든 늦은 밤, 평범한 개발자인 제가 AI와
+        함께 게임을 만드는 과정을 기록하고 그 경험을 이 블로그에서 나누려 합니다.
       </p>
       <h2>이 블로그에서는</h2>
       <ul>
@@ -31,7 +41,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li>1인 게임 개발 랩을 운영하며 겪는 일을 씁니다.</li>
         <li>AI를 활용한 경험을 공유합니다.</li>
       </ul>
-      <p>궁금한 점이나 함께하고 싶은 일이 있다면 <a href="/contact">Contact</a> 페이지로 연락해 주세요.</p>
+      <p>
+        궁금한 점이나 함께하고 싶은 일이 있다면 <a href="/contact">Contact</a> 페이지로
+        연락해 주세요.
+      </p>
     </div>
   </div>
 </BaseLayout>
