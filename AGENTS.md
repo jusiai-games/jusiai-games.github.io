@@ -15,7 +15,7 @@ JUSIAI GAMES 데브로그(https://jusiai-games.github.io)의 소스입니다. As
 
 ## README
 
-README는 공개 저장소를 찾아온 사람을 위한 **회사 소개**입니다. 설치, 빌드, 프로젝트 구조 같은 개발 문서는 README에 쓰지 않고 이 파일에 씁니다.
+README는 공개 저장소를 찾아온 사람을 위한 **JUSIAI GAMES 소개**입니다. 설치, 빌드, 프로젝트 구조 같은 개발 문서는 README에 쓰지 않고 이 파일에 씁니다.
 
 - 원본은 한국어 `README.md`, 번역은 영어 `README.en.md`, 일본어 `README.ja.md`입니다.
 - 한국어 원본을 고치면 영어와 일본어 번역도 같은 커밋에서 함께 고칩니다.
@@ -57,7 +57,7 @@ README는 공개 저장소를 찾아온 사람을 위한 **회사 소개**입니
 
 ## 디자인 규칙
 
-JUSIAI GAMES는 개발자 한 명의 1인 게임 개발사이고, 블로그는 JUSIAI GAMES 디자인 시스템(https://claude.ai/artifact/TFsB4FPK46UPLuyBiGv5TY)을 따릅니다. 기준은 디자인 시스템의 `project/README.md`와 `project/tokens.json`이고, 블로그의 `tokens.css`·`components.css`는 같은 이름과 값을 씁니다. 핵심 5색은 `night-desk`(바탕), `night-panel`(면), `butter-gold`(Lamp Gold, 강조), `home-cream`(글자), `peach-coral`(포인트)입니다.
+JUSIAI GAMES는 개발자 한 명의 1인 개발 랩이고, 블로그는 JUSIAI GAMES 디자인 시스템(https://claude.ai/artifact/TFsB4FPK46UPLuyBiGv5TY)을 따릅니다. 기준은 디자인 시스템의 `project/README.md`와 `project/tokens.json`이고, 블로그의 `tokens.css`·`components.css`는 같은 이름과 값을 씁니다. 핵심 5색은 `night-desk`(바탕), `night-panel`(면), `butter-gold`(Lamp Gold, 강조), `home-cream`(글자), `peach-coral`(포인트)입니다.
 
 - 색은 `src/styles/tokens.css`의 토큰으로만 씁니다. UI에는 역할 토큰(`var(--surface)`, `var(--card)`, `var(--ink)`, `var(--heading)`, `var(--link)`, `var(--muted)`, `var(--action)` …)을 먼저 쓰고, 테마와 상관없는 브랜드 면에만 원색 토큰(`var(--night-desk)`, `var(--butter-gold)` …)을 씁니다. `#hex`를 컴포넌트나 페이지에 직접 쓰지 않습니다.
 - 핵심 5색과 `moon-gray`, `neon-red`, 캐릭터 전용 색 밖의 새 색은 추가하지 않습니다. 필요하면 디자인 시스템부터 바꿉니다.
@@ -72,7 +72,7 @@ JUSIAI GAMES는 개발자 한 명의 1인 게임 개발사이고, 블로그는 J
 - 글자 대비는 두 테마 모두 4.5:1 이상이어야 합니다.
 - 브랜드 이미지는 `src/assets/brand/`의 파일만 쓰고 색이나 비율을 바꾸지 않습니다. 원본은 디자인 시스템의 Logos, Character 에셋입니다.
   - 로고(`Logo.astro`)는 캐릭터 얼굴(`butter-gold` 칸) + `JUSIAI GAMES` 글자(Pretendard 800, 자간 0.02em)입니다.
-  - 캐릭터는 32×32 픽셀입니다. 화면마다 회사 이름 왼쪽 작은 얼굴 하나가 기본이고, 크게 쓸 때는 정확히 2·4·8배(64·128·256px)로만 키웁니다. 8비트 아이콘은 40×40칸이라 40의 배수(120·160px)로 씁니다.
+  - 캐릭터는 32×32 픽셀입니다. 화면마다 `JUSIAI GAMES` 글자 왼쪽 작은 얼굴 하나가 기본이고, 크게 쓸 때는 정확히 2·4·8배(64·128·256px)로만 키웁니다. 8비트 아이콘은 40×40칸이라 40의 배수(120·160px)로 씁니다.
   - 픽셀 이미지는 Astro `<Image>`로 다시 인코딩하지 않고 원본 `src`를 `jg-pixel`(`image-rendering: pixelated`)로 씁니다.
   - 기본 OG 이미지는 `jusiai-games-banner-2560x1440.png`입니다.
   - 파비콘은 `npm run favicons`로만 다시 만듭니다.

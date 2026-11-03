@@ -1,6 +1,6 @@
 export const SITE_TITLE = 'JUSIAI GAMES';
-export const SITE_TAGLINE = '혼자서, 끝까지 만드는 게임';
-export const SITE_DESCRIPTION = '1인 게임 개발사 JUSIAI GAMES의 개발 블로그';
+export const SITE_TAGLINE = 'AI와 함께 처음부터 끝까지 만드는 게임';
+export const SITE_DESCRIPTION = '1인 개발 랩 JUSIAI GAMES의 개발 블로그';
 export const GITHUB_URL = 'https://github.com/jusiai-games';
 export const CONTACT_EMAIL = 'jusiai.games@gmail.com';
 

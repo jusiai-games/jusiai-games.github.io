@@ -4,7 +4,7 @@
 
 <h1 align="center">JUSIAI GAMES</h1>
 
-<p align="center">Games made alone, all the way to the end</p>
+<p align="center">Games made with AI, from start to finish</p>
 
 <p align="center">
   <a href="./README.md">한국어</a> · <b>English</b> · <a href="./README.ja.md">日本語</a>
@@ -14,23 +14,28 @@
 
 ## About
 
-**JUSIAI GAMES** is a one-person game studio. Game design, art, and code are all done by one developer.
+**JUSIAI GAMES** is a one-person dev lab. One developer, working with AI, handles everything from game design to art and code.
 
-The brand began at a desk late at night: a dark room, a desk lamp, and one developer in front of a monitor. The pixel character with comma hair, a black T-shirt, and wide-leg jeans is that developer. Our goal is games made alone, all the way to the end.
+I am a senior software engineer with eight years of experience. I have worked across many domains, but since AI arrived, the future of software development as a career has become uncertain, and that has made me anxious. With AI advancing this fast, I felt I needed to start preparing now.
 
-## How we work
+I started this lab for two reasons. One is a long-held wish to build a product of my own. The other is the hope that, with AI as leverage, I can now do things I once thought I could never do alone.
 
-- **Make it small.** We make games small enough for one person to finish.
-- **Show it often.** We share the work in progress on our devlog, not just the finished game.
-- **Keep moving.** We would rather build a little every night than try one big leap.
+Late at night after work, when my wife and children are asleep, I am just an ordinary developer making games with AI. I record that process on the devlog and share what I learn.
+
+## How I work
+
+- **Make it small.** I make games small enough to finish on my own.
+- **Show it often.** I share the work in progress on my devlog, not just the finished game.
+- **Keep moving.** I would rather build a little every night than try one big leap.
 
 ## Devlog
 
 **https://jusiai-games.github.io**
 
-- How our games are made, and the decisions behind them
-- What we learn about game design, pixel art, and code
-- What it is like to run a one-person studio
+- How my games are made, and the decisions behind them
+- What I learn about game design, pixel art, and code
+- What it is like to run a one-person dev lab
+- What I learn from working with AI
 
 This repository contains the source code of the devlog site.
 
@@ -39,7 +44,7 @@ This repository contains the source code of the devlog site.
 - Email: jusiai.games@gmail.com
 - GitHub: https://github.com/jusiai-games
 
-Questions about our games, collaboration offers, and bug reports are all welcome.
+Questions about my games, collaboration offers, and bug reports are all welcome.
 
 ---
 
