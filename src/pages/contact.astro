@@ -4,75 +4,75 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Contact" description="JUSIAI GAMES에 연락하는 방법">
-	<header class="page-head">
-		<h1 class="jg-underline">Contact</h1>
-		<p>게임 문의, 협업 제안, 버그 제보 모두 환영합니다.</p>
-	</header>
+  <header class="page-head">
+    <h1 class="jg-underline">Contact</h1>
+    <p>게임 문의, 협업 제안, 버그 제보 모두 환영합니다.</p>
+  </header>
 
-	<ul class="channels">
-		<li class="channel">
-			<span class="jg-badge">EMAIL</span>
-			<a class="channel__value" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-			<p>가장 확실한 연락 방법입니다.</p>
-			<button class="jg-btn jg-btn--secondary jg-btn--sm" type="button" data-copy={CONTACT_EMAIL}>주소 복사</button>
-		</li>
-		<li class="channel">
-			<span class="jg-badge jg-badge--coral">GITHUB</span>
-			<a class="channel__value" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">github.com/jusiai-games</a>
-			<p>이 블로그와 공개 프로젝트의 소스 코드가 있습니다. 블로그 오류는 이슈로 알려 주세요.</p>
-		</li>
-	</ul>
+  <ul class="channels">
+    <li class="channel">
+      <span class="jg-badge">EMAIL</span>
+      <a class="channel__value" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      <p>가장 확실한 연락 방법입니다.</p>
+      <button class="jg-btn jg-btn--secondary jg-btn--sm" type="button" data-copy={CONTACT_EMAIL}>주소 복사</button>
+    </li>
+    <li class="channel">
+      <span class="jg-badge jg-badge--coral">GITHUB</span>
+      <a class="channel__value" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">github.com/jusiai-games</a>
+      <p>이 블로그와 공개 프로젝트의 소스 코드가 있습니다. 블로그 오류는 이슈로 알려 주세요.</p>
+    </li>
+  </ul>
 </BaseLayout>
 
 <script>
-	for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
-		button.addEventListener('click', async () => {
-			const text = button.dataset.copy ?? '';
-			const original = button.textContent;
-			try {
-				await navigator.clipboard.writeText(text);
-				button.textContent = '복사했습니다';
-			} catch {
-				button.textContent = text;
-			}
-			setTimeout(() => (button.textContent = original), 2000);
-		});
-	}
+  for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+    button.addEventListener('click', async () => {
+      const text = button.dataset.copy ?? '';
+      const original = button.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        button.textContent = '복사했습니다';
+      } catch {
+        button.textContent = text;
+      }
+      setTimeout(() => (button.textContent = original), 2000);
+    });
+  }
 </script>
 
 <style>
-	.channels {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: var(--space-6);
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.channel {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--space-3);
-		padding: var(--space-6);
-		border-radius: var(--radius-md);
-		background: var(--card);
-		min-width: 0;
-	}
-	.channel__value {
-		font-size: 20px;
-		line-height: 28px;
-		font-weight: 700;
-		overflow-wrap: anywhere;
-	}
-	.channel p {
-		margin: 0;
-		font-size: 14px;
-		line-height: 22px;
-	}
-	@media (max-width: 720px) {
-		.channels {
-			grid-template-columns: minmax(0, 1fr);
-		}
-	}
+  .channels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .channel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    background: var(--card);
+    min-width: 0;
+  }
+  .channel__value {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+  .channel p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  @media (max-width: 720px) {
+    .channels {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
 </style>

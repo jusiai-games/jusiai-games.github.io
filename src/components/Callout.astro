@@ -4,8 +4,8 @@
  * <Callout type="note">이 글의 코드는 Unity 6 기준입니다.</Callout>
  */
 interface Props {
-	type?: 'tip' | 'note' | 'warn';
-	label?: string;
+  type?: 'tip' | 'note' | 'warn';
+  label?: string;
 }
 
 const LABELS = { tip: '팁', note: '참고', warn: '주의' } as const;
@@ -13,7 +13,7 @@ const { type = 'tip', label } = Astro.props;
 ---
 
 <div class:list={['jg-callout', { 'jg-callout--note': type === 'note', 'jg-callout--warn': type === 'warn' }]}>
-	<span class="jg-callout__dot" aria-hidden="true"></span>
-	<strong class="jg-callout__label">{label ?? LABELS[type]}</strong>
-	<div class="jg-callout__body"><slot /></div>
+  <span class="jg-callout__dot" aria-hidden="true"></span>
+  <strong class="jg-callout__label">{label ?? LABELS[type]}</strong>
+  <div class="jg-callout__body"><slot /></div>
 </div>

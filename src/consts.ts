@@ -6,8 +6,8 @@ export const CONTACT_EMAIL = 'jusiai.games@gmail.com';
 
 /** 주요 메뉴 (헤더, 푸터 공통) */
 export const NAV_ITEMS = [
-	{ href: '/', label: '홈' },
-	{ href: '/devlog', label: '데브로그' },
-	{ href: '/about', label: 'About' },
-	{ href: '/contact', label: 'Contact' },
+  { href: '/', label: '홈' },
+  { href: '/devlog', label: '데브로그' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
 ] as const;

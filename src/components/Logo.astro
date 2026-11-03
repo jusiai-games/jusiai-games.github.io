@@ -3,7 +3,7 @@ import character from '../assets/brand/jusiai-character-transparent-512.png';
 import { SITE_TITLE } from '../consts';
 
 interface Props {
-	href?: string;
+  href?: string;
 }
 
 const { href } = Astro.props;
@@ -11,8 +11,8 @@ const Tag = href ? 'a' : 'span';
 ---
 
 <Tag class="jg-logo" href={href} aria-label={href ? `${SITE_TITLE} 홈` : undefined}>
-	<span class="jg-logo__face" aria-hidden="true">
-		<img class="jg-pixel" src={character.src} width="64" height="64" alt="" />
-	</span>
-	<span class="jg-logo__word">{SITE_TITLE}</span>
+  <span class="jg-logo__face" aria-hidden="true">
+    <img class="jg-pixel" src={character.src} width="64" height="64" alt="" />
+  </span>
+  <span class="jg-logo__word">{SITE_TITLE}</span>
 </Tag>

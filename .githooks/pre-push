@@ -6,32 +6,32 @@
 zero=0000000000000000000000000000000000000000
 
 while read -r local_ref local_sha remote_ref remote_sha; do
-	[ "$local_sha" = "$zero" ] && continue # 브랜치 삭제
+  [ "$local_sha" = "$zero" ] && continue # 브랜치 삭제
 
-	if [ "$remote_sha" = "$zero" ]; then
-		range="$local_sha --not --remotes"
-	else
-		range="$remote_sha..$local_sha"
-	fi
+  if [ "$remote_sha" = "$zero" ]; then
+    range="$local_sha --not --remotes"
+  else
+    range="$remote_sha..$local_sha"
+  fi
 
-	# GitHub 웹에서 만든 커밋(커미터: GitHub <noreply@github.com>)은 작성자만 검사
-	bad=$(git log --format='%h|%an <%ae>|%cn <%ce>' $range | while IFS='|' read -r sha author committer; do
-		if [ "$author" != "$ALLOWED_IDENT" ]; then
-			echo "$sha author=$author"
-		elif [ "$committer" != "$ALLOWED_IDENT" ] && [ "$committer" != "GitHub <noreply@github.com>" ]; then
-			echo "$sha committer=$committer"
-		fi
-	done)
+  # GitHub 웹에서 만든 커밋(커미터: GitHub <noreply@github.com>)은 작성자만 검사
+  bad=$(git log --format='%h|%an <%ae>|%cn <%ce>' $range | while IFS='|' read -r sha author committer; do
+    if [ "$author" != "$ALLOWED_IDENT" ]; then
+      echo "$sha author=$author"
+    elif [ "$committer" != "$ALLOWED_IDENT" ] && [ "$committer" != "GitHub <noreply@github.com>" ]; then
+      echo "$sha committer=$committer"
+    fi
+  done)
 
-	if [ -n "$bad" ]; then
-		echo "" >&2
-		echo "✖ 허용되지 않은 계정의 커밋이 포함되어 push를 중단합니다:" >&2
-		printf '  %s\n' "$bad" >&2
-		echo "  이 저장소는 '$ALLOWED_IDENT' 로만 커밋할 수 있습니다." >&2
-		echo "  수정: git rebase -r <base> --exec 'git commit --amend --no-edit --reset-author'" >&2
-		echo "" >&2
-		exit 1
-	fi
+  if [ -n "$bad" ]; then
+    echo "" >&2
+    echo "✖ 허용되지 않은 계정의 커밋이 포함되어 push를 중단합니다:" >&2
+    printf '  %s\n' "$bad" >&2
+    echo "  이 저장소는 '$ALLOWED_IDENT' 로만 커밋할 수 있습니다." >&2
+    echo "  수정: git rebase -r <base> --exec 'git commit --amend --no-edit --reset-author'" >&2
+    echo "" >&2
+    exit 1
+  fi
 done
 
 exit 0

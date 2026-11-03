@@ -5,56 +5,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="About" description={`${SITE_TITLE}를 소개합니다.`}>
-	<div class="about">
-		<img
-			class="about__character jg-pixel"
-			src={character.src}
-			width="256"
-			height="256"
-			alt="쉼표머리에 검정 티셔츠, 통 큰 청바지를 입은 JUSIAI GAMES 픽셀 캐릭터"
-		/>
-		<div class="jg-prose">
-			<h1 class="jg-underline">About</h1>
-			<p><strong>{SITE_TITLE}</strong>는 개발자 한 명이 기획, 아트, 코드까지 모두 맡는 1인 게임 개발사입니다.</p>
-			<p>
-				브랜드는 늦은 밤의 작업 책상에서 시작했습니다. 불 꺼진 방, 책상 위 스탠드 불빛, 모니터 앞에 앉은 개발자 한 명.
-				쉼표머리에 검정 티셔츠, 통 큰 청바지를 입은 픽셀 캐릭터가 바로 그 개발자입니다. 혼자서, 끝까지 만드는 게임을
-				목표로 합니다.
-			</p>
-			<h2>이 블로그에서는</h2>
-			<ul>
-				<li>만들고 있는 게임의 개발 과정과 결정을 기록합니다.</li>
-				<li>게임 기획, 픽셀 아트, 코드에서 배운 것을 나눕니다.</li>
-				<li>1인 개발사를 운영하며 겪는 일을 씁니다.</li>
-			</ul>
-			<p>궁금한 점이나 함께하고 싶은 일이 있다면 <a href="/contact">Contact</a> 페이지로 연락해 주세요.</p>
-		</div>
-	</div>
+  <div class="about">
+    <img
+      class="about__character jg-pixel"
+      src={character.src}
+      width="256"
+      height="256"
+      alt="쉼표머리에 검정 티셔츠, 통 큰 청바지를 입은 JUSIAI GAMES 픽셀 캐릭터"
+    />
+    <div class="jg-prose">
+      <h1 class="jg-underline">About</h1>
+      <p><strong>{SITE_TITLE}</strong>는 개발자 한 명이 기획, 아트, 코드까지 모두 맡는 1인 게임 개발사입니다.</p>
+      <p>
+        브랜드는 늦은 밤의 작업 책상에서 시작했습니다. 불 꺼진 방, 책상 위 스탠드 불빛, 모니터 앞에 앉은 개발자 한 명.
+        쉼표머리에 검정 티셔츠, 통 큰 청바지를 입은 픽셀 캐릭터가 바로 그 개발자입니다. 혼자서, 끝까지 만드는 게임을
+        목표로 합니다.
+      </p>
+      <h2>이 블로그에서는</h2>
+      <ul>
+        <li>만들고 있는 게임의 개발 과정과 결정을 기록합니다.</li>
+        <li>게임 기획, 픽셀 아트, 코드에서 배운 것을 나눕니다.</li>
+        <li>1인 개발사를 운영하며 겪는 일을 씁니다.</li>
+      </ul>
+      <p>궁금한 점이나 함께하고 싶은 일이 있다면 <a href="/contact">Contact</a> 페이지로 연락해 주세요.</p>
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
-	.about {
-		display: grid;
-		grid-template-columns: 256px minmax(0, 1fr);
-		gap: var(--space-10);
-		align-items: start;
-		max-width: 960px;
-		margin: 0 auto;
-	}
-	/* 32×32 캐릭터: 256px = 8배, 128px = 4배 */
-	.about__character {
-		width: 256px;
-		height: 256px;
-		border-radius: var(--radius-md);
-	}
-	@media (max-width: 720px) {
-		.about {
-			grid-template-columns: minmax(0, 1fr);
-			gap: var(--space-6);
-		}
-		.about__character {
-			width: 128px;
-			height: 128px;
-		}
-	}
+  .about {
+    display: grid;
+    grid-template-columns: 256px minmax(0, 1fr);
+    gap: var(--space-10);
+    align-items: start;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  /* 32×32 캐릭터: 256px = 8배, 128px = 4배 */
+  .about__character {
+    width: 256px;
+    height: 256px;
+    border-radius: var(--radius-md);
+  }
+  @media (max-width: 720px) {
+    .about {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-6);
+    }
+    .about__character {
+      width: 128px;
+      height: 128px;
+    }
+  }
 </style>

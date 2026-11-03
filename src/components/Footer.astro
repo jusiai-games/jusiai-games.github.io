@@ -5,65 +5,65 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer jg-night">
-	<span class="jg-stairs" aria-hidden="true"></span>
-	<div class="site-footer__inner">
-		<nav aria-label="바닥 메뉴">
-			<ul>
-				{
-					NAV_ITEMS.map((item) => (
-						<li>
-							<a href={item.href}>{item.label}</a>
-						</li>
-					))
-				}
-				<li><a href="/rss.xml">RSS</a></li>
-			</ul>
-		</nav>
-		<div class="site-footer__meta">
-			<span>&copy; {year} {SITE_TITLE}</span>
-			<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-			<a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
-		</div>
-	</div>
+  <span class="jg-stairs" aria-hidden="true"></span>
+  <div class="site-footer__inner">
+    <nav aria-label="바닥 메뉴">
+      <ul>
+        {
+          NAV_ITEMS.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+        <li><a href="/rss.xml">RSS</a></li>
+      </ul>
+    </nav>
+    <div class="site-footer__meta">
+      <span>&copy; {year} {SITE_TITLE}</span>
+      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
 </footer>
 
 <style>
-	.site-footer__inner {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		gap: var(--space-4) var(--space-6);
-		max-width: var(--wide-width);
-		margin: 0 auto;
-		padding-block: var(--space-10);
-		padding-left: max(var(--space-4), env(safe-area-inset-left, 0px));
-		padding-right: max(var(--space-4), env(safe-area-inset-right, 0px));
-		font-size: 14px;
-		line-height: 22px;
-	}
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-2) var(--space-6);
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	ul a {
-		color: var(--ink);
-		font-weight: 600;
-		text-decoration: none;
-	}
-	ul a:hover {
-		text-decoration: underline;
-	}
-	.site-footer__meta {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-2) var(--space-4);
-		color: var(--muted);
-	}
-	.site-footer__meta a {
-		color: var(--muted);
-	}
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-4) var(--space-6);
+    max-width: var(--wide-width);
+    margin: 0 auto;
+    padding-block: var(--space-10);
+    padding-left: max(var(--space-4), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--space-4), env(safe-area-inset-right, 0px));
+    font-size: 14px;
+    line-height: 22px;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  ul a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  ul a:hover {
+    text-decoration: underline;
+  }
+  .site-footer__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    color: var(--muted);
+  }
+  .site-footer__meta a {
+    color: var(--muted);
+  }
 </style>

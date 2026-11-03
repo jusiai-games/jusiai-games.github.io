@@ -8,92 +8,92 @@
 */
 
 :root {
-	color-scheme: light;
+  color-scheme: light;
 
-	/* 핵심 5색 */
-	--night-desk: #2d3343; /* 늦은 밤의 작업 책상 */
-	--night-panel: #3a4256; /* night-desk 위 카드 */
-	--butter-gold: #ffd17a; /* Lamp Gold. 스탠드 불빛, 강조 */
-	--home-cream: #fff6e3; /* night-desk 위 글자 */
-	--peach-coral: #ff9e7a; /* 밑줄, 진행 표시 */
+  /* 핵심 5색 */
+  --night-desk: #2d3343; /* 늦은 밤의 작업 책상 */
+  --night-panel: #3a4256; /* night-desk 위 카드 */
+  --butter-gold: #ffd17a; /* Lamp Gold. 스탠드 불빛, 강조 */
+  --home-cream: #fff6e3; /* night-desk 위 글자 */
+  --peach-coral: #ff9e7a; /* 밑줄, 진행 표시 */
 
-	/* 보조 */
-	--moon-gray: #b7bcc8; /* night-desk 위 캡션 */
-	--on-accent: #2d3343; /* butter-gold·peach-coral·home-cream 면 위 글자. 두 테마 공통 */
-	--neon-red: #c9434c; /* 신호 전용, 작게, 한 화면에 하나 */
+  /* 보조 */
+  --moon-gray: #b7bcc8; /* night-desk 위 캡션 */
+  --on-accent: #2d3343; /* butter-gold·peach-coral·home-cream 면 위 글자. 두 테마 공통 */
+  --neon-red: #c9434c; /* 신호 전용, 작게, 한 화면에 하나 */
 
-	/* 역할 (Blog Light) */
-	--surface: #fffcf4;
-	--card: #f6f0e3;
-	--ink: var(--night-desk);
-	--heading: var(--night-desk);
-	--muted: #5e6475;
-	--link: #a84e2b;
-	--line: #e8e0cc;
-	--action: var(--night-desk);
-	--action-hover: var(--night-panel);
-	--on-action: var(--home-cream);
-	--on-signal: var(--surface);
-	--focus-ring: var(--night-desk);
+  /* 역할 (Blog Light) */
+  --surface: #fffcf4;
+  --card: #f6f0e3;
+  --ink: var(--night-desk);
+  --heading: var(--night-desk);
+  --muted: #5e6475;
+  --link: #a84e2b;
+  --line: #e8e0cc;
+  --action: var(--night-desk);
+  --action-hover: var(--night-panel);
+  --on-action: var(--home-cream);
+  --on-signal: var(--surface);
+  --focus-ring: var(--night-desk);
 
-	/* 글꼴 */
-	--font-sans: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
-	--font-mono: ui-monospace, 'SFMono-Regular', D2Coding, Menlo, Consolas, monospace;
+  /* 글꼴 */
+  --font-sans: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', D2Coding, Menlo, Consolas, monospace;
 
-	/* 간격 */
-	--space-1: 4px;
-	--space-2: 8px;
-	--space-3: 12px;
-	--space-4: 16px;
-	--space-6: 24px;
-	--space-10: 40px;
-	--space-16: 64px;
+  /* 간격 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-10: 40px;
+  --space-16: 64px;
 
-	/* 모서리 */
-	--radius-sm: 6px;
-	--radius-md: 14px;
-	--radius-pill: 999px;
+  /* 모서리 */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
 
-	/* 레이아웃 */
-	--content-width: 720px;
-	--wide-width: 1040px;
+  /* 레이아웃 */
+  --content-width: 720px;
+  --wide-width: 1040px;
 }
 
 /* Night 테마 */
 @media (prefers-color-scheme: dark) {
-	:root:not([data-theme='light']) {
-		color-scheme: dark;
-		--surface: var(--night-desk);
-		--card: var(--night-panel);
-		--ink: var(--home-cream);
-		--heading: var(--butter-gold);
-		--muted: var(--moon-gray);
-		--link: var(--butter-gold);
-		--line: #4a536b;
-		--action: var(--butter-gold);
-		--action-hover: #ffdc96;
-		--on-action: var(--on-accent);
-		--neon-red: #ee7a80;
-		--on-signal: var(--night-desk);
-		--focus-ring: var(--butter-gold);
-	}
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --surface: var(--night-desk);
+    --card: var(--night-panel);
+    --ink: var(--home-cream);
+    --heading: var(--butter-gold);
+    --muted: var(--moon-gray);
+    --link: var(--butter-gold);
+    --line: #4a536b;
+    --action: var(--butter-gold);
+    --action-hover: #ffdc96;
+    --on-action: var(--on-accent);
+    --neon-red: #ee7a80;
+    --on-signal: var(--night-desk);
+    --focus-ring: var(--butter-gold);
+  }
 }
 
 /* .jg-night: 테마와 상관없이 늘 Night인 영역(헤더, 히어로, 푸터) */
 :root[data-theme='dark'],
 .jg-night {
-	color-scheme: dark;
-	--surface: var(--night-desk);
-	--card: var(--night-panel);
-	--ink: var(--home-cream);
-	--heading: var(--butter-gold);
-	--muted: var(--moon-gray);
-	--link: var(--butter-gold);
-	--line: #4a536b;
-	--action: var(--butter-gold);
-	--action-hover: #ffdc96;
-	--on-action: var(--on-accent);
-	--neon-red: #ee7a80;
-	--on-signal: var(--night-desk);
-	--focus-ring: var(--butter-gold);
+  color-scheme: dark;
+  --surface: var(--night-desk);
+  --card: var(--night-panel);
+  --ink: var(--home-cream);
+  --heading: var(--butter-gold);
+  --muted: var(--moon-gray);
+  --link: var(--butter-gold);
+  --line: #4a536b;
+  --action: var(--butter-gold);
+  --action-hover: #ffdc96;
+  --on-action: var(--on-accent);
+  --neon-red: #ee7a80;
+  --on-signal: var(--night-desk);
+  --focus-ring: var(--butter-gold);
 }

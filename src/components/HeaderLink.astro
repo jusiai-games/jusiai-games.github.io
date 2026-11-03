@@ -9,27 +9,27 @@ const isActive = href === '/' ? pathname === '/' : pathname === href || pathname
 ---
 
 <a href={href} class:list={['nav-link', className, { active: isActive }]} aria-current={isActive ? 'page' : undefined} {...props}>
-	<slot />
+  <slot />
 </a>
 
 <style>
-	.nav-link {
-		display: inline-flex;
-		align-items: center;
-		padding: var(--space-2) var(--space-3);
-		border-radius: var(--radius-pill);
-		color: var(--ink);
-		font-size: 15px;
-		line-height: 20px;
-		font-weight: 600;
-		text-decoration: none;
-		white-space: nowrap;
-	}
-	.nav-link:hover {
-		background: var(--card);
-	}
-	.nav-link.active {
-		background: var(--action);
-		color: var(--on-action);
-	}
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-pill);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-link:hover {
+    background: var(--card);
+  }
+  .nav-link.active {
+    background: var(--action);
+    color: var(--on-action);
+  }
 </style>
