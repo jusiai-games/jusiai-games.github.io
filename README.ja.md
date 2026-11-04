@@ -43,6 +43,7 @@
 
 - メール: jusiai.games@gmail.com
 - GitHub: https://github.com/jusiai-games
+- YouTube: https://www.youtube.com/channel/UCF2V3hLtsKUT3_CNWj1PrVw
 
 ゲームに関するお問い合わせ、コラボレーションのご提案、バグ報告など、お気軽にご連絡ください。
 

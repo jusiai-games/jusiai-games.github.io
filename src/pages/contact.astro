@@ -1,5 +1,5 @@
 ---
-import { CONTACT_EMAIL, GITHUB_URL } from '../consts';
+import { CONTACT_EMAIL, GITHUB_URL, YOUTUBE_URL } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -20,6 +20,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <span class="jg-badge jg-badge--coral">GITHUB</span>
       <a class="channel__value" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">github.com/jusiai-games</a>
       <p>이 블로그와 공개 프로젝트의 소스 코드가 있습니다. 블로그 오류는 이슈로 알려 주세요.</p>
+    </li>
+    <li class="channel">
+      <span class="jg-badge">YOUTUBE</span>
+      <a class="channel__value" href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer">JUSIAI</a>
+      <p>JUSIAI GAMES의 영상을 올리는 채널입니다.</p>
     </li>
   </ul>
 </BaseLayout>

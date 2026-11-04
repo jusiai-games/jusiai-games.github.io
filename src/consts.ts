@@ -2,6 +2,7 @@ export const SITE_TITLE = 'JUSIAI GAMES';
 export const SITE_TAGLINE = 'AI와 함께 처음부터 끝까지 만드는 게임';
 export const SITE_DESCRIPTION = '1인 개발 랩 JUSIAI GAMES의 개발 블로그';
 export const GITHUB_URL = 'https://github.com/jusiai-games';
+export const YOUTUBE_URL = 'https://www.youtube.com/channel/UCF2V3hLtsKUT3_CNWj1PrVw';
 export const CONTACT_EMAIL = 'jusiai.games@gmail.com';
 
 /** 글 이미지 저장소(jusiai-games/blog-images-2026)의 파일 주소 앞부분 */

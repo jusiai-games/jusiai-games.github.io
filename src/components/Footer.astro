@@ -1,5 +1,5 @@
 ---
-import { CONTACT_EMAIL, GITHUB_URL, NAV_ITEMS, SITE_TITLE } from '../consts';
+import { CONTACT_EMAIL, GITHUB_URL, NAV_ITEMS, SITE_TITLE, YOUTUBE_URL } from '../consts';
 
 const year = new Date().getFullYear();
 ---
@@ -23,6 +23,7 @@ const year = new Date().getFullYear();
       <span>&copy; {year} {SITE_TITLE}</span>
       <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
       <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer">YouTube</a>
     </div>
   </div>
 </footer>

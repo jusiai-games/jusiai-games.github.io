@@ -43,6 +43,7 @@ This repository contains the source code of the devlog site.
 
 - Email: jusiai.games@gmail.com
 - GitHub: https://github.com/jusiai-games
+- YouTube: https://www.youtube.com/channel/UCF2V3hLtsKUT3_CNWj1PrVw
 
 Questions about my games, collaboration offers, and bug reports are all welcome.
 

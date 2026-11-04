@@ -43,6 +43,7 @@
 
 - 이메일: jusiai.games@gmail.com
 - GitHub: https://github.com/jusiai-games
+- YouTube: https://www.youtube.com/channel/UCF2V3hLtsKUT3_CNWj1PrVw
 
 게임 문의, 협업 제안, 버그 제보 모두 환영합니다.
 
