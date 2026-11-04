@@ -253,3 +253,32 @@ a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-off
   margin-top: var(--space-3);
   background: var(--peach-coral);
 }
+
+/* 본문 안 GitHub 저장소 상자. .jg-prose a를 이기도록 a를 붙입니다. */
+a.jg-repo-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+}
+.jg-repo-card__mark {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--butter-gold);
+  color: var(--on-accent);
+}
+.jg-repo-card__text { display: flex; flex-direction: column; min-width: 0; overflow-wrap: anywhere; }
+.jg-repo-card__owner { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--muted); }
+.jg-repo-card__name { color: var(--heading); font-size: 17px; line-height: 24px; font-weight: 700; }
+.jg-repo-card__desc { margin-top: var(--space-1); font-size: 14px; line-height: 22px; }
+a.jg-repo-card:hover .jg-repo-card__name { text-decoration: underline; text-underline-offset: 4px; }
+a.jg-repo-card:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-radius: var(--radius-md); }
