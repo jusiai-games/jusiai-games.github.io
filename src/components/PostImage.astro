@@ -1,0 +1,18 @@
+---
+/**
+ * 본문 안 이미지 한 장. MDX에서 사용:
+ * <PostImage src={`${IMAGE_URL_2026}/file.jpg`} alt="이미지 설명" caption="캡션" />
+ */
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+const { src, alt, caption } = Astro.props;
+---
+
+<figure class="jg-post-image">
+  <img src={src} alt={alt} loading="lazy" decoding="async" />
+  {caption && <figcaption class="jg-media-caption">{caption}</figcaption>}
+</figure>

@@ -282,3 +282,49 @@ a.jg-repo-card {
 .jg-repo-card__desc { margin-top: var(--space-1); font-size: 14px; line-height: 22px; }
 a.jg-repo-card:hover .jg-repo-card__name { text-decoration: underline; text-underline-offset: 4px; }
 a.jg-repo-card:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-radius: var(--radius-md); }
+
+/* 본문 이미지 PostImage, ImageCollage. .jg-prose img를 이기도록 파일 맨 아래에 둡니다. */
+.jg-post-image, .jg-image-collage { margin: var(--space-6) 0; }
+.jg-post-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--card);
+}
+.jg-media-caption {
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+.jg-image-collage__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+.jg-image-collage__item {
+  position: relative;
+  grid-column: span 2;
+  aspect-ratio: 4 / 3;
+}
+.jg-image-collage__item--wide { grid-column: span 3; }
+/* 세 장: 왼쪽 큰 이미지 높이를 오른쪽 두 칸에 맞춥니다. */
+.jg-image-collage__grid--feature .jg-image-collage__item:first-child {
+  grid-column: span 4;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+.jg-image-collage__item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--card);
+}

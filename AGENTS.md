@@ -53,7 +53,9 @@ README는 공개 저장소를 찾아온 사람을 위한 **JUSIAI GAMES 소개**
 - 화면 문구와 문서는 한국어로 씁니다. 메뉴의 About, Contact처럼 정해진 영문 이름은 그대로 둡니다.
 - 주요 메뉴는 `src/consts.ts`의 `NAV_ITEMS`(홈 → 데브로그 → About → Contact) 하나에서만 관리합니다.
 - 데브로그 글은 `src/content/devlog/`에 `YYYY-MM-DD-슬러그.mdx` 이름으로 두고, frontmatter는 `src/content.config.ts` 스키마를 따릅니다. URL은 날짜를 뺀 `/devlog/슬러그/`이고, 글 정렬은 파일 이름이 아니라 `pubDate` 기준(최신 글이 위)입니다.
+- 새 글은 `templates/devlog-post.mdx`를 복사해서 시작합니다. `src/content/devlog/` 밖에 두어야 글로 빌드되지 않습니다.
 - GitHub 저장소 링크는 글에서 `src/components/RepoCard.astro`로 보여 줍니다.
+- 글 이미지는 blog-images-2026 저장소에 올리고 `src/consts.ts`의 `IMAGE_URL_2026`으로 주소를 만듭니다. 한 장은 `src/components/PostImage.astro`, 여러 장은 `src/components/ImageCollage.astro`로 보여 줍니다.
 - 글 첨삭은 `.claude/skills/edit-devlog/SKILL.md`(`/edit-devlog`)를 따릅니다.
 - Node.js 26(`.nvmrc`)을 기준으로 합니다.
 
@@ -63,7 +65,7 @@ JUSIAI GAMES는 개발자 한 명의 1인 개발 랩이고, 블로그는 JUSIAI 
 
 - 색은 `src/styles/tokens.css`의 토큰으로만 씁니다. UI에는 역할 토큰(`var(--surface)`, `var(--card)`, `var(--ink)`, `var(--heading)`, `var(--link)`, `var(--muted)`, `var(--action)` …)을 먼저 쓰고, 테마와 상관없는 브랜드 면에만 원색 토큰(`var(--night-desk)`, `var(--butter-gold)` …)을 씁니다. `#hex`를 컴포넌트나 페이지에 직접 쓰지 않습니다.
 - 핵심 5색과 `moon-gray`, `neon-red`, 캐릭터 전용 색 밖의 새 색은 추가하지 않습니다. 필요하면 디자인 시스템부터 바꿉니다.
-- 버튼, 배지, 태그, 카드, 콜아웃, 본문, 로고는 `src/styles/components.css`의 `jg-` 클래스를 씁니다. 파일 위쪽은 디자인 시스템 `components/bundle.css`와 같게 두고, 블로그 전용 클래스(`jg-night`, `jg-pixel`, `jg-logo__face`, `jg-stairs`, `jg-underline`, `jg-repo-card`)는 맨 아래에 둡니다.
+- 버튼, 배지, 태그, 카드, 콜아웃, 본문, 로고는 `src/styles/components.css`의 `jg-` 클래스를 씁니다. 파일 위쪽은 디자인 시스템 `components/bundle.css`와 같게 두고, 블로그 전용 클래스(`jg-night`, `jg-pixel`, `jg-logo__face`, `jg-stairs`, `jg-underline`, `jg-repo-card`, `jg-post-image`, `jg-image-collage`, `jg-media-caption`)는 맨 아래에 둡니다.
 - 테마는 Night(OS 다크 모드)와 Blog Light(글 본문, 기본) 두 가지입니다. 헤더, 홈 히어로, 푸터는 두 테마 모두 Night이고, `jg-night` 클래스로 역할 토큰을 Night 값으로 바꿉니다. 경계는 `jg-stairs`(`night-panel` 픽셀 계단)로 표시합니다.
 - Blog Light: `surface` #FFFCF4, `card` #F6F0E3, 본문·제목 `night-desk`, 링크 짙은 코랄 #A84E2B, 캡션 #5E6475, 기본 버튼 `night-desk` 면에 `home-cream` 글자.
 - Night: `surface` `night-desk`, `card` `night-panel`, 본문 `home-cream`, 제목·링크 `butter-gold`, 캡션 `moon-gray`, 기본 버튼 `butter-gold` 면에 `on-accent` 글자.

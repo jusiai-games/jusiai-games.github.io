@@ -1,0 +1,31 @@
+---
+/**
+ * 본문 안 이미지 여러 장. 칸에 맞춰 이미지를 자릅니다. MDX에서 사용:
+ * <ImageCollage images={[{ src: `${IMAGE_URL_2026}/file.jpg`, alt: '설명' }, …]} caption="캡션" />
+ */
+interface Props {
+  images: { src: string; alt: string }[];
+  caption?: string;
+}
+
+const { images, caption } = Astro.props;
+if (images.length < 2) {
+  throw new Error('ImageCollage에는 이미지가 두 장 이상 필요합니다. 한 장은 PostImage를 쓰세요.');
+}
+
+// 한 줄에 세 장씩 놓고, 나누어떨어지지 않으면 앞줄에 두 장씩 넓게 놓아 빈칸을 없앱니다.
+const wideCount = [0, 4, 2][images.length % 3];
+---
+
+<figure class="jg-image-collage">
+  <div class:list={['jg-image-collage__grid', { 'jg-image-collage__grid--feature': images.length === 3 }]}>
+    {
+      images.map((image, index) => (
+        <div class:list={['jg-image-collage__item', { 'jg-image-collage__item--wide': index < wideCount }]}>
+          <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+        </div>
+      ))
+    }
+  </div>
+  {caption && <figcaption class="jg-media-caption">{caption}</figcaption>}
+</figure>
