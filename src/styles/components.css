@@ -204,6 +204,48 @@ a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-off
 .jg-prose hr { border: 0; height: 1px; background: var(--line); margin: var(--space-10) 0; }
 .jg-prose .jg-prose__meta { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--muted); }
 
+/* ---------- Quote (after Prose so its margin wins) ---------- */
+.jg-quote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin: var(--space-6) 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--card);
+}
+.jg-quote__mark {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--butter-gold);
+  color: var(--on-accent);
+}
+.jg-quote__text { min-width: 0; }
+.jg-quote .jg-quote__body {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 28px;
+  font-weight: 500;
+}
+.jg-quote__body > * { margin: 0; }
+.jg-quote__body > * + * { margin-top: var(--space-3); }
+.jg-quote__source {
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
 /* ================= 블로그 전용 ================= */
 
 /* 늘 Night인 영역. 역할 토큰은 tokens.css의 .jg-night가 바꿉니다. */
@@ -282,48 +324,6 @@ a.jg-repo-card {
 .jg-repo-card__desc { margin-top: var(--space-1); font-size: 14px; line-height: 22px; }
 a.jg-repo-card:hover .jg-repo-card__name { text-decoration: underline; text-underline-offset: 4px; }
 a.jg-repo-card:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-radius: var(--radius-md); }
-
-/* 본문 인용구 Quote. .jg-prose blockquote를 이기도록 클래스를 겹쳐 씁니다. */
-.jg-quote {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  margin: var(--space-6) 0;
-  padding: var(--space-4);
-  border-radius: var(--radius-md);
-  background: var(--card);
-}
-.jg-quote__mark {
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background: var(--butter-gold);
-  color: var(--on-accent);
-}
-.jg-quote__text { min-width: 0; }
-.jg-quote .jg-quote__body {
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
-  background: none;
-  color: var(--ink);
-  font-size: 17px;
-  line-height: 28px;
-  font-weight: 500;
-}
-.jg-quote__body > * { margin: 0; }
-.jg-quote__body > * + * { margin-top: var(--space-3); }
-.jg-quote__source {
-  margin-top: var(--space-2);
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 500;
-}
 
 /* 본문 이미지 PostImage, ImageCollage. .jg-prose img를 이기도록 파일 맨 아래에 둡니다. */
 .jg-post-image, .jg-image-collage { margin: var(--space-6) 0; }
