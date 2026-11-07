@@ -8,6 +8,7 @@ tags: [] # PROMPT(글 내용을 보고 적당한 태그들 추가)
 
 import ImageCollage from '../../components/ImageCollage.astro';
 import PostImage from '../../components/PostImage.astro';
+import Quote from '../../components/Quote.astro';
 import RepoCard from '../../components/RepoCard.astro';
 import { IMAGE_URL_2026 } from '../../consts';
 
@@ -26,6 +27,9 @@ import { IMAGE_URL_2026 } from '../../consts';
     ]}
     caption="콜라주 아래에 보일 설명"
   />
+
+  인용구:
+  <Quote source="출처">따옴표 없이 쓴 인용문</Quote>
 
   GitHub 저장소:
   <RepoCard url="https://github.com/jusiai-games/저장소" description="저장소를 한 줄로 설명하는 문장이다." />

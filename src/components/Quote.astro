@@ -1,0 +1,23 @@
+---
+/**
+ * 본문 안 인용구. MDX에서 사용:
+ * <Quote source="출처">따옴표 없이 쓴 인용문</Quote>
+ */
+interface Props {
+  source?: string;
+}
+
+const { source } = Astro.props;
+---
+
+<figure class="jg-quote">
+  <span class="jg-quote__mark" aria-hidden="true">
+    <svg viewBox="0 0 8 8" width="24" height="24" fill="currentColor" shape-rendering="crispEdges">
+      <path d="M0 2h3v3H2v1H0V5h1V4H0zM5 2h3v3H7v1H5V5h1V4H5z"></path>
+    </svg>
+  </span>
+  <div class="jg-quote__text">
+    <blockquote class="jg-quote__body"><slot /></blockquote>
+    {source && <figcaption class="jg-quote__source">{source}</figcaption>}
+  </div>
+</figure>
