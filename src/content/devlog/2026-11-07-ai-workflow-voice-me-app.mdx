@@ -3,7 +3,7 @@ title: '내 목소리로 쇼츠 만드는 AI 워크플로우 구축하기'
 description: '1인 게임 개발 랩을 알릴 채널로 유튜브를 택하고, 오래된 게이밍 노트북에서 돌아가는 보이스 클로닝 TTS 애플리케이션을 만들었다. 글에서 쇼츠 영상까지 이어지는 AI 워크플로우를 정리했다.'
 pubDate: '2026-11-07'
 updatedDate: '2026-11-07'
-tags: ['브랜딩', '유튜브', 'TTS', '로컬 LLM', 'AI']
+tags: ['브랜딩', '유튜브', 'TTS', '로컬 AI 모델', 'AI']
 ---
 
 import PostImage from '../../components/PostImage.astro';
@@ -11,7 +11,7 @@ import Quote from '../../components/Quote.astro';
 import RepoCard from '../../components/RepoCard.astro';
 import { IMAGE_URL_2026 } from '../../consts';
 
-이번 글에서는 로컬 LLM을 활용해 보이스 클로닝을 지원하는 간단한 TTS(text to speech) 애플리케이션을 만들어 쓰고 있는 경험을 공유해 보려 한다. 내가 1인 게임 개발 랩을 시작한 데에는 두 가지 목적이 있다.
+이번 글에서는 로컬 AI 모델을 활용해 보이스 클로닝을 지원하는 간단한 TTS(text to speech) 애플리케이션을 만들어 쓰고 있는 경험을 공유해 보려 한다. 내가 1인 게임 개발 랩을 시작한 데에는 두 가지 목적이 있다.
 
 - AI 게임 개발하기
 - 나만의 브랜드 만들기
@@ -38,14 +38,14 @@ AI는 이런 나 같은 일반인도 쉽게 롱폼이나 쇼츠 영상을 만들
 
 ## 게이밍 노트북으로 만든 TTS
 
-다행히 게이밍 노트북은 로컬 LLM을 돌릴 수 있는 사양이었다.
+다행히 게이밍 노트북은 로컬 AI 모델을 돌릴 수 있는 사양이었다.
 
 - 2019년 한성 컴퓨터 TFG277S
 - Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
 - 32GB RAM
 - NVIDIA GeForce RTX 2070 8GB VRAM
 
-그래픽 카드의 VRAM이 8GB이기 때문에 적절한 크기의 파라미터를 가진 로컬 LLM을 조사한 뒤 "Qwen3-TTS 0.6B Base"라는 모델을 적용했다. 쇼츠 영상을 쉽게 만들기 위해 직접 만든 보이스 클로닝 TTS 애플리케이션은 사전에 녹음해 놓은 내 목소리를 듣고, 내가 작성한 대본을 내 목소리로 읽어 준다.
+그래픽 카드의 VRAM이 8GB이기 때문에 적절한 크기의 파라미터를 가진 로컬 AI 모델을 조사한 뒤 "Qwen3-TTS 0.6B Base"를 적용했다. 쇼츠 영상을 쉽게 만들기 위해 직접 만든 보이스 클로닝 TTS 애플리케이션은 사전에 녹음해 놓은 내 목소리를 듣고, 내가 작성한 대본을 내 목소리로 읽어 준다.
 
 <PostImage src={`${IMAGE_URL_2026}/ai-workflow-voice-me-app-01.png`} alt="보이스 클로닝 TTS 애플리케이션이 RTX 2070으로 대본의 음성 파일을 생성하는 터미널 화면" />
 
