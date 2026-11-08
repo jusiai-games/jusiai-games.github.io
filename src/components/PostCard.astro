@@ -5,20 +5,21 @@ import FormattedDate from './FormattedDate.astro';
 
 interface Props {
   post: CollectionEntry<'devlog'>;
-  /** 이 날짜 이후 글에 NEW 배지 표시 (기본: 14일) */
-  newWithinDays?: number;
 }
 
-const { post, newWithinDays = 14 } = Astro.props;
+const { post } = Astro.props;
 const { title, description, pubDate, heroImage, tags } = post.data;
-const isNew = Date.now() - pubDate.valueOf() < newWithinDays * 24 * 60 * 60 * 1000;
+// pubDate는 날짜만 있어 UTC 자정으로 읽힌다. 글 날짜 다음 날이 끝나는 한국 시간 자정까지 NEW를 보여 준다.
+const HOUR = 60 * 60 * 1000;
+const newUntil = pubDate.valueOf() + (48 - 9) * HOUR;
+const isNew = Date.now() < newUntil;
 ---
 
 <a class="jg-post-card" href={`/devlog/${post.id}/`}>
   {heroImage && <Image class="jg-post-card__image" src={heroImage} width={720} height={360} alt="" />}
   <div class="jg-post-card__meta">
     <FormattedDate date={pubDate} />
-    {isNew && <span class="jg-badge jg-badge--new">NEW</span>}
+    {isNew && <span class="jg-badge jg-badge--new" data-new-until={newUntil}>NEW</span>}
   </div>
   <h3 class="jg-post-card__title">{title}</h3>
   <p class="jg-post-card__desc">{description}</p>
@@ -32,3 +33,10 @@ const isNew = Date.now() - pubDate.valueOf() < newWithinDays * 24 * 60 * 60 * 10
     </div>
   )
 }
+
+<script>
+  // 정적 사이트라 빌드 때 붙인 NEW는 다시 배포할 때까지 남는다. 기한이 지난 배지는 브라우저에서 지운다.
+  for (const badge of document.querySelectorAll<HTMLElement>('[data-new-until]')) {
+    if (Date.now() >= Number(badge.dataset.newUntil)) badge.remove();
+  }
+</script>
