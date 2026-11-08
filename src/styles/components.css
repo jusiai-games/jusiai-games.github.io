@@ -296,6 +296,37 @@ a.jg-post-card:focus-visible { outline: 2px solid var(--focus-ring); outline-off
   background: var(--peach-coral);
 }
 
+/* 본문 표. 머리 행은 card 면으로, 행 구분은 line 한 줄로만 합니다. */
+.jg-prose table {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 24px;
+}
+.jg-prose th, .jg-prose td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: top;
+  /* .jg-prose의 anywhere는 칸 최소 폭을 한 글자로 줄여 좁은 화면에서 단어가 끊깁니다. */
+  overflow-wrap: break-word;
+}
+.jg-prose th {
+  background: var(--card);
+  color: var(--heading);
+  font-size: 14px;
+  font-weight: 700;
+}
+.jg-prose td { border-top: 1px solid var(--line); }
+.jg-prose td:first-child { font-weight: 600; }
+@media (max-width: 480px) {
+  .jg-prose table { font-size: 14px; line-height: 22px; }
+  .jg-prose th, .jg-prose td { padding: var(--space-2) var(--space-3); }
+}
+
 /* 본문 안 GitHub 저장소 상자. .jg-prose a를 이기도록 a를 붙입니다. */
 a.jg-repo-card {
   display: flex;
