@@ -67,7 +67,7 @@ JUSIAI GAMES는 개발자 한 명의 1인 개발 랩이고, 블로그는 JUSIAI 
 
 - 색은 `src/styles/tokens.css`의 토큰으로만 씁니다. UI에는 역할 토큰(`var(--surface)`, `var(--card)`, `var(--ink)`, `var(--heading)`, `var(--link)`, `var(--muted)`, `var(--action)` …)을 먼저 쓰고, 테마와 상관없는 브랜드 면에만 원색 토큰(`var(--night-desk)`, `var(--butter-gold)` …)을 씁니다. `#hex`를 컴포넌트나 페이지에 직접 쓰지 않습니다.
 - 핵심 5색과 `moon-gray`, `neon-red`, 캐릭터 전용 색 밖의 새 색은 추가하지 않습니다. 필요하면 디자인 시스템부터 바꿉니다.
-- 버튼, 배지, 태그, 카드, 콜아웃, 본문, 로고는 `src/styles/components.css`의 `jg-` 클래스를 씁니다. 파일 위쪽은 디자인 시스템 `components/bundle.css`와 같게 두고, 블로그 전용 클래스(`jg-night`, `jg-pixel`, `jg-logo__face`, `jg-stairs`, `jg-underline`, `jg-repo-card`, `jg-post-image`, `jg-image-collage`, `jg-media-caption`, `jg-references`)는 맨 아래에 둡니다.
+- 버튼, 배지, 태그, 카드, 콜아웃, 본문, 로고는 `src/styles/components.css`의 `jg-` 클래스를 씁니다. 파일 위쪽은 디자인 시스템 `components/bundle.css`와 같게 두고, 블로그 전용 클래스(`jg-night`, `jg-pixel`, `jg-logo__face`, `jg-stairs`, `jg-underline`, `jg-repo-card`, `jg-post-image`, `jg-image-collage`, `jg-media-caption`)는 맨 아래에 둡니다.
 - 테마는 Night(OS 다크 모드)와 Blog Light(글 본문, 기본) 두 가지입니다. 헤더, 홈 히어로, 푸터는 두 테마 모두 Night이고, `jg-night` 클래스로 역할 토큰을 Night 값으로 바꿉니다. 경계는 `jg-stairs`(`night-panel` 픽셀 계단)로 표시합니다.
 - Blog Light: `surface` #FFFCF4, `card` #F6F0E3, 본문·제목 `night-desk`, 링크 짙은 코랄 #A84E2B, 캡션 #5E6475, 기본 버튼 `night-desk` 면에 `home-cream` 글자.
 - Night: `surface` `night-desk`, `card` `night-panel`, 본문 `home-cream`, 제목·링크 `butter-gold`, 캡션 `moon-gray`, 기본 버튼 `butter-gold` 면에 `on-accent` 글자.
