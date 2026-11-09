@@ -9,6 +9,7 @@ tags: [] # PROMPT(글 내용을 보고 적당한 태그들 추가)
 import ImageCollage from '../../components/ImageCollage.astro';
 import PostImage from '../../components/PostImage.astro';
 import Quote from '../../components/Quote.astro';
+import References from '../../components/References.astro';
 import RepoCard from '../../components/RepoCard.astro';
 import { IMAGE_URL_2026 } from '../../consts';
 
@@ -33,6 +34,9 @@ import { IMAGE_URL_2026 } from '../../consts';
 
   GitHub 저장소:
   <RepoCard url="https://github.com/jusiai-games/저장소" description="저장소를 한 줄로 설명하는 문장이다." />
+
+  참고 자료(글 맨 끝에 하나만):
+  <References links={[{ title: '참고한 글 제목', url: 'https://example.com/post' }]} />
 */}
 
 ## 소제목

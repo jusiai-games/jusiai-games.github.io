@@ -1,0 +1,29 @@
+---
+/**
+ * 글 끝 참고 자료 목록. MDX에서 사용:
+ * <References links={[{ title: '참고한 글 제목', url: 'https://example.com/post' }]} />
+ */
+interface Props {
+  links: { title?: string; url: string }[];
+}
+
+const { links } = Astro.props;
+---
+
+<section class="jg-references">
+  <h2>참고 자료</h2>
+  <ol class="jg-references__list">
+    {
+      links.map(({ title, url }) => (
+        <li>
+          <a class="jg-references__link" href={url} target="_blank" rel="noopener noreferrer">
+            <span class="jg-references__text">
+              <span class="jg-references__title">{title ?? url}</span>
+              <span class="jg-references__host">{new URL(url).hostname}</span>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</section>
