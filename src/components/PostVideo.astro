@@ -1,0 +1,18 @@
+---
+/**
+ * 본문 안 영상 하나. 소리가 있는 영상도 있으므로 자동 재생하지 않고 재생 버튼을 보여 줍니다. MDX에서 사용:
+ * <PostVideo src={`${IMAGE_URL_2026}/file.mp4`} label="영상 설명" caption="캡션" />
+ */
+interface Props {
+  src: string;
+  label: string;
+  caption?: string;
+}
+
+const { src, label, caption } = Astro.props;
+---
+
+<figure class="jg-post-video">
+  <video src={src} aria-label={label} controls playsinline preload="metadata"></video>
+  {caption && <figcaption class="jg-media-caption">{caption}</figcaption>}
+</figure>

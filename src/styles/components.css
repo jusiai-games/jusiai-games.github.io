@@ -396,9 +396,9 @@ a.jg-repo-card {
 a.jg-repo-card:hover .jg-repo-card__name { text-decoration: underline; text-underline-offset: 4px; }
 a.jg-repo-card:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-radius: var(--radius-md); }
 
-/* 본문 이미지 PostImage, ImageCollage. .jg-prose img를 이기도록 파일 맨 아래에 둡니다. */
-.jg-post-image, .jg-image-collage { margin: var(--space-6) 0; }
-.jg-post-image img {
+/* 본문 이미지·영상 PostImage, ImageCollage, PostVideo. .jg-prose img를 이기도록 파일 맨 아래에 둡니다. */
+.jg-post-image, .jg-image-collage, .jg-post-video { margin: var(--space-6) 0; }
+.jg-post-image img, .jg-post-video video {
   display: block;
   width: 100%;
   height: auto;

@@ -1,6 +1,6 @@
 ---
 name: edit-devlog
-description: JUSIAI GAMES 데브로그 글(src/content/devlog의 .md, .mdx)을 첨삭해요. 어색한 표현, 중복 표현, 오타를 고치고, 문체를 -이다 어체로 맞추고, PROMPT(지시문)을 지시대로 쓴 글로 바꾸고, 소주제마다 h2 제목을 넣고, 인용구를 Quote로, GitHub 저장소 URL을 RepoCard 상자로, 이미지를 PostImage와 ImageCollage로, 참고 자료 링크를 References로 바꾸고, 날짜와 파일 이름을 규칙에 맞게 정리해요. 글 첨삭, 교정, 퇴고, 다듬기를 요청받았을 때 사용해요.
+description: JUSIAI GAMES 데브로그 글(src/content/devlog의 .md, .mdx)을 첨삭해요. 어색한 표현, 중복 표현, 오타를 고치고, 문체를 -이다 어체로 맞추고, PROMPT(지시문)을 지시대로 쓴 글로 바꾸고, 소주제마다 h2 제목을 넣고, 인용구를 Quote로, GitHub 저장소 URL을 RepoCard 상자로, 이미지를 PostImage와 ImageCollage로, 영상을 PostVideo로, 참고 자료 링크를 References로 바꾸고, 날짜와 파일 이름을 규칙에 맞게 정리해요. 글 첨삭, 교정, 퇴고, 다듬기를 요청받았을 때 사용해요.
 ---
 
 # 데브로그 글 첨삭
@@ -109,6 +109,13 @@ import { IMAGE_URL_2026 } from '../../consts';
 - `ImageCollage`는 이미지를 칸에 맞춰 잘라서 보여 줍니다. 전체가 보여야 하는 스크린샷이나 도표로 보이면 그대로 묶되 보고할 때 알려 줍니다.
 - `alt`는 이미 있으면 유지하고, 없으면 주변 글과 파일 이름으로 씁니다. 근거가 부족하면 이미지를 내려받아 직접 봅니다. 그래도 알 수 없으면 `alt=""`로 두고 알려 줍니다.
 - `caption`은 글쓴이가 이미지 설명으로 쓴 문구가 있을 때만 씁니다. 없으면 생략합니다.
+- mp4 영상(`<video>`, 영상 파일 링크)은 `PostVideo`로 보여 줍니다. `src` 규칙은 이미지와 같고, `alt` 대신 `label`에 영상 설명을 씁니다. 영상은 `ImageCollage`로 묶지 않습니다.
+
+  ```mdx
+  import PostVideo from '../../components/PostVideo.astro';
+
+  <PostVideo src={`${IMAGE_URL_2026}/file.mp4`} label="영상 설명" caption="영상 아래에 보일 설명" />
+  ```
 - `import`는 쓰는 것만 추가합니다.
 
 ## 8. 레퍼런스
@@ -156,7 +163,7 @@ import References from '../../components/References.astro';
 
 ## 10. 확인과 보고
 
-1. 글에 처리하지 않은 `PROMPT(`가 남았는지, `-습니다`, `-습니까`, `-요.`, `-요?`로 끝나는 문장과 1인칭 `저`, `제가`가 남았는지, 코드 블록 밖에 `<img`나 `![`, `{/*`, `> "`가 남았는지 검색합니다.
+1. 글에 처리하지 않은 `PROMPT(`가 남았는지, `-습니다`, `-습니까`, `-요.`, `-요?`로 끝나는 문장과 1인칭 `저`, `제가`가 남았는지, 코드 블록 밖에 `<img`, `<video`, `![`, `{/*`, `> "`가 남았는지 검색합니다.
 2. `IMAGE_URL_2026` 이미지마다 `curl -sI`로 주소를 확인합니다. 빌드는 없는 이미지를 잡아 주지 않으므로, 200이 아니면 저장소에 파일이 없는 것으로 알려 줍니다.
 3. `npm run build`를 실행해 오류와 경고가 없는지 확인합니다.
 4. 커밋하지 않고, 다음을 짧게 알려 줍니다.
